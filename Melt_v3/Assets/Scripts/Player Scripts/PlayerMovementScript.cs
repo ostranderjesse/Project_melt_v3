@@ -4,34 +4,42 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    #region Variables
 
-    //variables
+    //controllers
     public CharacterController controller;
+    [Space]
+
+    //Player
+    public GameObject player;
+    [Space]
 
     //speeds
     public int moveSpeed;
     public float _gravity = 9.81f;
     public int jumpSpeed = 8;
     [Space]
+
     //movement
     public Vector3 moveDirection;
     private float _directionY;
-    private float moveVelocity;
+    public float moveVelocity;
+
     [Space]
     //multi jump
     public int extraJumps;
    
     public int extraJumpValue;
     [Space]
+
     //animator
    // public Animator anim;
     [Space]
     //used to warp player
-    public GameObject player;
     public Transform warpLocationIn;
     public Transform warpLocationOut;
-    
 
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +60,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if(controller.isGrounded == true)
         {
-            Debug.Log("character controller is grounded");
+           // Debug.Log("character controller is grounded");
 
             //  anim.SetBool("isJumping", false);
 
