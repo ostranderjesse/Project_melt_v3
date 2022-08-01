@@ -1,7 +1,205 @@
 fileFormatVersion: 2
 guid: 120656adb4eafa74db4ab0bca5d99bc1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4986797050018433151
+    second: Snowman_0
+  - first:
+      213: -201068980293874157
+    second: Snowman_0
+  - first:
+      213: 2586455320667969100
+    second: Snowman_1
+  - first:
+      213: 9097643338360507817
+    second: Snowman_2
+  - first:
+      213: 7172345189728147047
+    second: Snowman_3
+  - first:
+      213: 2177676721687205271
+    second: Snowman_4
+  - first:
+      213: 3619598570687634276
+    second: Snowman_5
+  - first:
+      213: -3909041007412922137
+    second: Snowman_6
+  - first:
+      213: 8750260997080391230
+    second: Snowman_7
+  - first:
+      213: -6304296534489980326
+    second: Snowman_8
+  - first:
+      213: 3252988376206480696
+    second: Snowman_9
+  - first:
+      213: -7570094421300495519
+    second: Snowman_10
+  - first:
+      213: -2837970070256730812
+    second: Snowman_11
+  - first:
+      213: 899428468441797363
+    second: Snowman_12
+  - first:
+      213: 8381808373982296025
+    second: Snowman_13
+  - first:
+      213: 4817823467093200640
+    second: Snowman_14
+  - first:
+      213: -5681063543866592366
+    second: Snowman_15
+  - first:
+      213: -8643298281682685390
+    second: Snowman_16
+  - first:
+      213: 1305131531243902200
+    second: Snowman_17
+  - first:
+      213: -6263038645849297847
+    second: Snowman_18
+  - first:
+      213: 9013657833040283029
+    second: Snowman_19
+  - first:
+      213: 4975880154435168971
+    second: Snowman_20
+  - first:
+      213: 4049267198850443909
+    second: Snowman_21
+  - first:
+      213: -4109901806517883270
+    second: Snowman_22
+  - first:
+      213: 4313303941367455330
+    second: Snowman_23
+  - first:
+      213: -1328227238292032194
+    second: Snowman_24
+  - first:
+      213: 5799879971946567078
+    second: Snowman_25
+  - first:
+      213: 8867608185290921283
+    second: Snowman_26
+  - first:
+      213: -3385907739386070267
+    second: Snowman_27
+  - first:
+      213: 4214917191428702906
+    second: Snowman_28
+  - first:
+      213: -7105652336983181537
+    second: Snowman_29
+  - first:
+      213: 892978410365545976
+    second: Snowman_30
+  - first:
+      213: -2945152256811353256
+    second: Snowman_31
+  - first:
+      213: -1705246026117249179
+    second: Snowman_32
+  - first:
+      213: 3262193684413528112
+    second: Snowman_33
+  - first:
+      213: 2107932038210209809
+    second: Snowman_34
+  - first:
+      213: 1727238177046736872
+    second: Snowman_35
+  - first:
+      213: -4173037433000937479
+    second: Snowman_36
+  - first:
+      213: -2117394149692735042
+    second: Snowman_37
+  - first:
+      213: -2806382736950280704
+    second: Snowman_38
+  - first:
+      213: 3792394201881777741
+    second: Snowman_39
+  - first:
+      213: 5204756340800122114
+    second: Snowman_40
+  - first:
+      213: 6966668824256216524
+    second: Snowman_41
+  - first:
+      213: -1098609765886266468
+    second: Snowman_42
+  - first:
+      213: -2120534956587562297
+    second: Snowman_43
+  - first:
+      213: -4556240649606276353
+    second: Snowman_44
+  - first:
+      213: 5683648270086661389
+    second: Snowman_45
+  - first:
+      213: 8880506643392837342
+    second: Snowman_46
+  - first:
+      213: 4160677272855235907
+    second: Snowman_47
+  - first:
+      213: -5101898614076670164
+    second: Snowman_48
+  - first:
+      213: 5923702380264353851
+    second: Snowman_49
+  - first:
+      213: -2356111272009182031
+    second: Snowman_50
+  - first:
+      213: -2926931338197286845
+    second: Snowman_51
+  - first:
+      213: 5830748160715076101
+    second: Snowman_52
+  - first:
+      213: -2869125449428601439
+    second: Snowman_53
+  - first:
+      213: -8386591608453333140
+    second: Snowman_54
+  - first:
+      213: -6998479089228557190
+    second: Snowman_55
+  - first:
+      213: 8726364680318457193
+    second: Snowman_56
+  - first:
+      213: -9151817518661777303
+    second: Snowman_57
+  - first:
+      213: 3842567754709897327
+    second: Snowman_58
+  - first:
+      213: -6889627987453179545
+    second: Snowman_59
+  - first:
+      213: -3284623289785017743
+    second: Snowman_60
+  - first:
+      213: 691437375676485125
+    second: Snowman_61
+  - first:
+      213: -452004549279982675
+    second: Snowman_62
+  - first:
+      213: -6261740450597465964
+    second: Snowman_63
+  - first:
+      213: -7118434873597373604
+    second: Snowman_64
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +229,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: 2
     mipBias: -100
     wrapU: 1
@@ -40,7 +238,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +319,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Snowman_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 200
+        width: 845
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ecb36e3d8a53df0800000000000000
+      internalID: -201068980293874157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snowman_1
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 200
+        width: 845
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4655d7196fe4e320800000000000000
+      internalID: 2586455320667969100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snowman_2
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 200
+        width: 845
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad4d243a62514e70800000000000000
+      internalID: 9097643338360507817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snowman_3
+      rect:
+        serializedVersion: 2
+        x: 2605
+        y: 200
+        width: 845
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7665a3803f9498360800000000000000
+      internalID: 7172345189728147047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
