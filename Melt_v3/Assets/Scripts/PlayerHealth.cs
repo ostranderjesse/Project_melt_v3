@@ -23,14 +23,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        //damage player
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDanage(10.0f);
-        }
+        ////damage player
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDanage(10.0f);
+        //}
     }
 
-    void TakeDanage(float damage)
+   public void TakeDanage(float damage)
     {
         currentHealth -= damage;
 
