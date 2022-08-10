@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
@@ -24,20 +23,22 @@ public class PlayerMovementScript : MonoBehaviour
     public Vector3 moveDirection;
     private float _directionY;
     public float moveVelocity;
-
     [Space]
+
     //multi jump
     public int extraJumps;
-   
     public int extraJumpValue;
     [Space]
 
     //animator
-   // public Animator anim;
+    // public Animator anim;
     [Space]
     //used to warp player
-    public Transform warpLocationIn;
-    public Transform warpLocationOut;
+    public GameObject warpEnterence; //warp enterenece 1
+    public GameObject warpExit; // warp exit 1
+
+    //public Transform warpLocation;
+    //public Transform endOfWarpExit;
 
     #endregion
     // Start is called before the first frame update
@@ -46,7 +47,11 @@ public class PlayerMovementScript : MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        
+
+        //warpEnterence = warpLocation.transform.Find("Warp entence 1").gameObject;
+        warpEnterence = GameObject.FindGameObjectWithTag("Warp");
+        warpEnterence = GameObject.FindGameObjectWithTag("ExitWarp");
+
         // anim = GetComponent<Animator>();
         extraJumps = extraJumpValue;
     }
@@ -117,7 +122,7 @@ public class PlayerMovementScript : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         //warp to warp exit
-        if(other.tag == "WarpIn")
+        if(other.tag == "Warp")
         {
             Debug.Log("change the position of the character to the warp position elsewhere");
 
@@ -125,7 +130,7 @@ public class PlayerMovementScript : MonoBehaviour
             controller.enabled = false;
 
             //move player to warp position
-            player.transform.position = warpLocationOut.position;
+            player.transform.position = warpExit.transform.position;
 
             //re enable character controller
             controller.enabled = true;
@@ -140,7 +145,7 @@ public class PlayerMovementScript : MonoBehaviour
             controller.enabled = false;
 
             //move player to warp position
-            player.transform.position = warpLocationOut.position;
+            //player.transform.position = endOfWarpExit.transform.position;
 
             //re enable character controller
             controller.enabled = true;

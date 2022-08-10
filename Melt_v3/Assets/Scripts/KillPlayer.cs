@@ -33,7 +33,7 @@ public class KillPlayer : MonoBehaviour
         if(other.name == "player(Clone)")
         {
 
-            PlayerHealthRef.TakeDanage(10);
+            PlayerHealthRef.TakeDanage(10.0f);
 
             levelManagerRef.RespawnPlayer();
         }

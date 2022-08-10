@@ -106,9 +106,8 @@ public class HealthBar : MonoBehaviour
         if(fillValue <= 0 )
         {
             Debug.Log("player is now dead");
+            //kill player here
         }
-
-
     }
 
     public void SetMaxHealth(float health)
@@ -120,5 +119,7 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float health)
     {
         slider.value = health;
+
+
     }
 }

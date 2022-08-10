@@ -38,6 +38,18 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+    public void HealDamage(float heal)
+    {
+        currentHealth += heal;
+
+        healthBarRef.SetHealth(currentHealth);
+
+        if(currentHealth >= MAXHEALTH)
+        {
+            //Debug.Log("Player health is larger then max set it to max");
+            currentHealth = MAXHEALTH;
+        }
+    }
 
 
 
