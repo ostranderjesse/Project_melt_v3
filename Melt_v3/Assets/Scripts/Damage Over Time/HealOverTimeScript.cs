@@ -32,15 +32,13 @@ public class HealOverTimeScript : MonoBehaviour
 
                 ticTimeH -= Time.deltaTime;
 
-                if (ticTimeH <= 0)
-                {
-                    PlayerHealthRef.HealDamage(10.0f);
-                    Debug.Log("Healed");
-                    ticTimeH = 0.5f;
-                    //Debug.Log("tickTimeH reset");
-
-                }
-
+            if (ticTimeH <= 0)
+            {
+                PlayerHealthRef.HealDamage(10.0f);
+                Debug.Log("Healed");
+                ticTimeH = 0.5f;
+                //Debug.Log("tickTimeH reset");
+            }
         }
     }
 
@@ -48,7 +46,6 @@ public class HealOverTimeScript : MonoBehaviour
     {
        if(other.gameObject.tag == "Player")
         {
-
             Debug.Log("exited heal area");
 
             if(ticTimeH != 0.5f) //1.0f
@@ -56,7 +53,6 @@ public class HealOverTimeScript : MonoBehaviour
                 ticTimeH = 0.5f; // 1.0f
                 Debug.Log("ticTime heal has been reset to: " + ticTimeH);
             }
-
         }
     }
 
@@ -70,8 +66,5 @@ public class HealOverTimeScript : MonoBehaviour
         Debug.Log("Stopped coroutine at timestamp:" + Time.time);
 
     }
-
-
-
 
 }

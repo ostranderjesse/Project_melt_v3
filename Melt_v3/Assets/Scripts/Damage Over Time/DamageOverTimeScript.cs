@@ -6,7 +6,6 @@ public class DamageOverTimeScript : MonoBehaviour
 
     public float ticTimeD; // tic Damage
 
-
     [SerializeField]
     private PlayerHealth PlayerHealthRef;
 
@@ -24,44 +23,20 @@ public class DamageOverTimeScript : MonoBehaviour
         }
     }
 
-
-    public void Update()
-    {
-        if (playerInDamageArea == true)
-        {
-            ticTimeD -= Time.deltaTime;
-
-            if (ticTimeD <= 0)
-            {
-                PlayerHealthRef.TakeDanage(5.0f);
-                Debug.Log("Damaged");
-                ticTimeD = 1.0f;
-            }
-
-        }
-        else if (playerInDamageArea == false)
-        {
-            Debug.Log("playerInDamageArea: is false");
-            return;
-        }
-
-    }
-
-
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")     //if(other.name == "player(Clone)")  "DamageOverTimeAera"
         {
             playerInDamageArea = true;
 
-            //ticTimeD -= Time.deltaTime;
+            ticTimeD -= Time.deltaTime;
 
-            //if(ticTimeD <= 0)
-            //{
-            //    PlayerHealthRef.TakeDanage(5);
-            //    Debug.Log("Damaged");
-            //    ticTimeD = 2.0f;
-            //}
+            if (ticTimeD <= 0)
+            {
+                PlayerHealthRef.TakeDanage(5);
+                Debug.Log("Damaged");
+                ticTimeD = 2.0f;
+            }
         }
     }
 
@@ -74,11 +49,8 @@ public class DamageOverTimeScript : MonoBehaviour
             //reset ticTime back to 2
             ticTimeD = 1.0f;
 
-            Debug.Log("Reset ticTime back to: " + ticTimeD);
+            //Debug.Log("Reset ticTime back to: " + ticTimeD);
 
         }
     }
-
-
-
 }

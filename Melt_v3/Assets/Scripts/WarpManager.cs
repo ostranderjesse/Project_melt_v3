@@ -39,6 +39,8 @@ public class WarpManager : MonoBehaviour
             StartCoroutine(WaitforTeleport());
             StopCoroutine(WaitforTeleport());
         }
+        else
+            playerInTrigger = false;
 
     }
 

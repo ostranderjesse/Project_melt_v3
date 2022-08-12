@@ -34,23 +34,28 @@ public class PlayerMovementScript : MonoBehaviour
     // public Animator anim;
     [Space]
     //used to warp player
-    public GameObject warpEnterence; //warp enterenece 1
-    public GameObject warpExit; // warp exit 1
+    public GameObject[] warpEnterence; //warp enterenece 1
+    public GameObject[] warpExit; // warp exit 1
 
-    //public Transform warpLocation;
-    //public Transform endOfWarpExit;
+
+    // references
+    [SerializeField]
+    private PlayerMovementScript playerMovementRef;
 
     #endregion
     // Start is called before the first frame update
     void Start()
     {
+        playerMovementRef = FindObjectOfType<PlayerMovementScript>();
+
+
         controller = GetComponent<CharacterController>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
         //warpEnterence = warpLocation.transform.Find("Warp entence 1").gameObject;
-        warpEnterence = GameObject.FindGameObjectWithTag("Warp");
-        warpExit = GameObject.FindGameObjectWithTag("ExitWarp");
+        warpEnterence = GameObject.FindGameObjectsWithTag("Warp");
+        warpExit = GameObject.FindGameObjectsWithTag("ExitWarp");
 
         // anim = GetComponent<Animator>();
         extraJumps = extraJumpValue;
@@ -119,37 +124,54 @@ public class PlayerMovementScript : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
     }
 
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    //warp to warp exit
-    //    if(other.tag == "Warp")
-    //    {
-    //        Debug.Log("change the position of the character to the warp position elsewhere");
+    public void OnTriggerEnter(Collider other)
+    {
+        //warp to warp exit
+        if (other.gameObject.name == "warpin1")
+        {
+            Debug.Log("change the position of the character to the warp position elsewhere");
 
-    //        //disable controller
-    //        controller.enabled = false;
+            //disable controller
+            controller.enabled = false;
 
-    //        //move player to warp position
-    //        player.transform.position = warpExit.transform.position;
+            playerMovementRef.enabled = false;
 
-    //        //re enable character controller
-    //        controller.enabled = true;
-    //    }
 
-    //    //warp back to play area
-    //    if (other.tag == "ExitWarp")
-    //    {
-    //        Debug.Log("change the position of the character to the warp position elsewhere");
+            //move player to warp position
+            player.transform.position = warpExit[0].transform.position;
 
-    //        //disable controller
-    //        controller.enabled = false;
+            //re enable character controller
+            controller.enabled = true;
 
-    //        //move player to warp position
-    //        //player.transform.position = endOfWarpExit.transform.position;
+            playerMovementRef.enabled = true;
+        }
 
-    //        //re enable character controller
-    //        controller.enabled = true;
-    //    }
-    //}
+        //warp back to play area
+        if (other.gameObject.name == "warpin2")
+        {
+            Debug.Log("change the position of the character to the warp position elsewhere");
+
+            //disable controller
+            controller.enabled = false;
+
+            playerMovementRef.enabled = false;
+            Debug.Log("playermovmentRef = false");
+            //move player to warp position
+            player.transform.position = warpExit[1].transform.position;
+
+            //re enable character controller
+            controller.enabled = true;
+
+            playerMovementRef.enabled = true;
+
+            if(playerMovementRef.enabled == true)
+            {
+                Debug.Log("playermovmentRef = true");
+            }
+            
+
+
+        }
+    }
 
 }
