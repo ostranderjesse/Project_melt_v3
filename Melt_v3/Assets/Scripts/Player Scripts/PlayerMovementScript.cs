@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
@@ -50,7 +50,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         //warpEnterence = warpLocation.transform.Find("Warp entence 1").gameObject;
         warpEnterence = GameObject.FindGameObjectWithTag("Warp");
-        warpEnterence = GameObject.FindGameObjectWithTag("ExitWarp");
+        warpExit = GameObject.FindGameObjectWithTag("ExitWarp");
 
         // anim = GetComponent<Animator>();
         extraJumps = extraJumpValue;
@@ -119,37 +119,37 @@ public class PlayerMovementScript : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        //warp to warp exit
-        if(other.tag == "Warp")
-        {
-            Debug.Log("change the position of the character to the warp position elsewhere");
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    //warp to warp exit
+    //    if(other.tag == "Warp")
+    //    {
+    //        Debug.Log("change the position of the character to the warp position elsewhere");
 
-            //disable controller
-            controller.enabled = false;
+    //        //disable controller
+    //        controller.enabled = false;
 
-            //move player to warp position
-            player.transform.position = warpExit.transform.position;
+    //        //move player to warp position
+    //        player.transform.position = warpExit.transform.position;
 
-            //re enable character controller
-            controller.enabled = true;
-        }
+    //        //re enable character controller
+    //        controller.enabled = true;
+    //    }
 
-        //warp back to play area
-        if (other.tag == "ExitWarp")
-        {
-            Debug.Log("change the position of the character to the warp position elsewhere");
+    //    //warp back to play area
+    //    if (other.tag == "ExitWarp")
+    //    {
+    //        Debug.Log("change the position of the character to the warp position elsewhere");
 
-            //disable controller
-            controller.enabled = false;
+    //        //disable controller
+    //        controller.enabled = false;
 
-            //move player to warp position
-            //player.transform.position = endOfWarpExit.transform.position;
+    //        //move player to warp position
+    //        //player.transform.position = endOfWarpExit.transform.position;
 
-            //re enable character controller
-            controller.enabled = true;
-        }
-    }
+    //        //re enable character controller
+    //        controller.enabled = true;
+    //    }
+    //}
 
 }

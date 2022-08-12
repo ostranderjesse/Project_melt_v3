@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -21,11 +21,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void RespawnPlayer()
     {

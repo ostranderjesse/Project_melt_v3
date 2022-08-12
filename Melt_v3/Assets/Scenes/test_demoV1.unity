@@ -13820,6 +13820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 122872682}
+  - component: {fileID: 122872683}
   m_Layer: 0
   m_Name: warp areas
   m_TagString: Untagged
@@ -13845,6 +13846,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &122872683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122872681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e356467d657b8b47bacd37672c1e8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warpEnterence: []
+  warp2Location: []
+  playerInTrigger: 0
+  playermovmentRef: {fileID: 0}
 --- !u!1001 &124296141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16959,7 +16976,7 @@ GameObject:
   - component: {fileID: 203483831}
   - component: {fileID: 203483830}
   m_Layer: 0
-  m_Name: Warp entence 1
+  m_Name: warpin1
   m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25728,25 +25745,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1873871177}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &341884002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8772164617101858029, guid: fa306266e6d7b2d47a760ef1081bdf80,
-    type: 3}
-  m_PrefabInstance: {fileID: 1435642238}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &341884005
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341884002}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9999998, y: 1.9999998, z: 2.0000005}
-  m_Center: {x: 0.000000923872, y: 0, z: 0}
 --- !u!1001 &342080694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46247,7 +46245,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767366447}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -105885,8 +105883,8 @@ GameObject:
   - component: {fileID: 1915868664}
   - component: {fileID: 1915868663}
   m_Layer: 0
-  m_Name: warp enterence 2
-  m_TagString: Untagged
+  m_Name: warpin2
+  m_TagString: Warp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105913,7 +105911,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915868661}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -109312,7 +109310,7 @@ GameObject:
   - component: {fileID: 2039934344}
   m_Layer: 0
   m_Name: Warp exit 2
-  m_TagString: Untagged
+  m_TagString: ExitWarp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109339,7 +109337,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039934342}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
