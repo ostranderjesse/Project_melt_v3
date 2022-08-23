@@ -17,12 +17,11 @@ public class EndOfLevel : MonoBehaviour
         {
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
-            SceneManager.LoadScene("OverWorldScene");// name of overworld scene here
+            SceneManager.LoadScene("OverWorld");// name of overworld scene here
 
-            PlayerPrefs.SetFloat("newPlayerPositionX", .5f); // .f is the location of the new start postion
-            PlayerPrefs.SetFloat("newPlayerPositionY", .5f);
-            PlayerPrefs.SetFloat("newPlayerPositionZ", .5f);
+            PlayerPrefs.SetFloat("newPlayerPositionX", -0.56f); // .f is the location of the new start postion
+            PlayerPrefs.SetFloat("newPlayerPositionY", 16.84f);
+            PlayerPrefs.SetFloat("newPlayerPositionZ", 17.14681f);
         }
     }
-
 }

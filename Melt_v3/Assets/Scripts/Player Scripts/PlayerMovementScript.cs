@@ -169,8 +169,6 @@ public class PlayerMovementScript : MonoBehaviour
                 Debug.Log("playermovmentRef = true");
             }
             
-
-
         }
     }
 
