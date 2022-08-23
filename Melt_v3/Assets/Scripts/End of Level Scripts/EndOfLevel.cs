@@ -22,6 +22,12 @@ public class EndOfLevel : MonoBehaviour
             PlayerPrefs.SetFloat("newPlayerPositionX", -0.56f); // .f is the location of the new start postion
             PlayerPrefs.SetFloat("newPlayerPositionY", 16.84f);
             PlayerPrefs.SetFloat("newPlayerPositionZ", 17.14681f);
+
+
+
+
+            //if(PlayerPrefs.GetInt("ReachedLevel") < )
+
         }
     }
 }
