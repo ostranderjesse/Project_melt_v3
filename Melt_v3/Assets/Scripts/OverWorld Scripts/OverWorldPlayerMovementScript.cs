@@ -21,7 +21,10 @@ public class OverWorldPlayerMovementScript : MonoBehaviour
     public Vector3 moveDirection;
     private float _directionY;
     public float moveVelocity;
-    //[Space]
+    [Space]
+
+    //bool
+    public bool facingRight = true;
 
     //animator
     // public Animator anim;
@@ -65,7 +68,17 @@ public class OverWorldPlayerMovementScript : MonoBehaviour
             _directionY -= _gravity * Time.deltaTime; // this is your jumping stuff and gravity
         }
 
-            moveVelocity = moveSpeed;
+        //flip player arround as they move left or right
+        if (horizInput < 0 && facingRight)
+        {
+            Flip();
+        }
+        else if (horizInput > 0 && !facingRight)
+        {
+            Flip();
+        }
+
+        moveVelocity = moveSpeed;
             moveDirection *= moveSpeed;
             moveDirection.y = _directionY;
 
@@ -83,5 +96,14 @@ public class OverWorldPlayerMovementScript : MonoBehaviour
         //move player left and right
         controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
 
+    }
+
+    //methods
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 }

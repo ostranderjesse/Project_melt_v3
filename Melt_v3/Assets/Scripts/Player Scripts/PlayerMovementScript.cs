@@ -37,6 +37,9 @@ public class PlayerMovementScript : MonoBehaviour
     public GameObject[] warpEnterence; //warp enterenece 1
     public GameObject[] warpExit; // warp exit 1
 
+    [Space]
+    //bool
+    public bool facingRight = true;
 
     // references
     [SerializeField]
@@ -93,6 +96,17 @@ public class PlayerMovementScript : MonoBehaviour
                 extraJumps--;
                 Debug.Log("extra jump value: " + extraJumps + "else statment");
             }
+        }
+
+
+        //flip player arround as they move left or right
+        if(horizInput <0 && facingRight )
+        {
+            Flip();
+        }
+        else if(horizInput >0 && !facingRight)
+        {
+            Flip();
         }
 
         //jumping
@@ -170,6 +184,14 @@ public class PlayerMovementScript : MonoBehaviour
             }
             
         }
+    }
+
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 
 }
