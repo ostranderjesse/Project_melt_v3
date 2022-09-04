@@ -1,23 +1,23 @@
-﻿using UnityEngine;
+﻿
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
-
-public class StartLevel1 : MonoBehaviour
+public class StartLevel2 : MonoBehaviour
 {
-
-    public bool isInside = false;
+    public bool isInsideLevel2 = false;
 
 
     public void Start()
     {
-        isInside = false;
+        isInsideLevel2 = false;
     }
+
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "OWPlayer")
         {
-            isInside = true;
+            isInsideLevel2 = true;
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -26,32 +26,33 @@ public class StartLevel1 : MonoBehaviour
             //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
             //}
 
-            //if(Input.GetKeyDown("space"))
-            //{
-            //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
-            //}
+            if (Input.GetKeyDown("space"))
+            {
+
+                SceneManager.LoadScene("test_demoV2");// name of overworld scene here
+
+                Debug.Log("Level 2 entered");
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "OWPlayer")
+        if (other.tag == "OWPlayer")
         {
-            isInside = false;
+            isInsideLevel2 = false;
         }
     }
 
 
 
-
-
     public void Update()
     {
-        if (isInside == true)
+        if (isInsideLevel2 == true)
         {
             if (Input.GetKeyDown("space"))
             {
-                SceneManager.LoadScene("test_demoV1");// name of overworld scene here
+                SceneManager.LoadScene("test_demoV2");// name of overworld scene here
             }
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -63,12 +64,9 @@ public class StartLevel1 : MonoBehaviour
 
 
         }
-        else if (!isInside )
+        else if (!isInsideLevel2)
         {
             Debug.Log("is inside level 1 = false");
         }
-
-
     }
-
 }

@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class EndOfLevel : MonoBehaviour
+public class EnOfLevel2 : MonoBehaviour
 {
 
     // forced gameobject location for testing, change to gameobject not just flaot x y z position
@@ -11,35 +12,39 @@ public class EndOfLevel : MonoBehaviour
     //public float z = 0.5f; // change to the location of the gameobject
 
 
+    //4.72f
+    // 16.84f
+    //17.14681f
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" )
+        if (other.tag == "Player")
         {
+
             PlayerPrefs.GetInt("LevelsUnlocked");
 
-            if (PlayerPrefs.GetInt("LevelsUnlocked",1) == 1) // ,1
+            if (PlayerPrefs.GetInt("LevelsUnlocked",2) == 2) //,2
             {
 
                 Debug.Log(other.tag + "is the player and is inside the block do something");
 
                 SceneManager.LoadScene("OverWorld");// name of overworld scene here
 
-                PlayerPrefs.SetFloat("newPlayerPositionX", -0.56f); // .f is the location of the new start postion
+                PlayerPrefs.SetFloat("newPlayerPositionX", 4.72f); // .f is the location of the new start postion
                 PlayerPrefs.SetFloat("newPlayerPositionY", 16.84f);
                 PlayerPrefs.SetFloat("newPlayerPositionZ", 17.14681f);
 
-                PlayerPrefs.SetInt("LevelsUnlocked", 2);
+                PlayerPrefs.SetInt("LevelsUnlocked", 3);
 
-                Debug.Log("LevelsUnlocked =: " + "2");
+                Debug.Log("LevelsUnlocked =: " + "3");
             }
-            else //if(PlayerPrefs.GetInt("LevelsUnlocked") > 1)
+            else
             {
                 Debug.Log(other.tag + "is the player and is inside the block do something");
 
                 SceneManager.LoadScene("OverWorld");// name of overworld scene here
 
-                PlayerPrefs.SetFloat("newPlayerPositionX", -0.56f); // .f is the location of the new start postion
+                PlayerPrefs.SetFloat("newPlayerPositionX", 4.72f); // .f is the location of the new start postion
                 PlayerPrefs.SetFloat("newPlayerPositionY", 16.84f);
                 PlayerPrefs.SetFloat("newPlayerPositionZ", 17.14681f);
             }
@@ -82,8 +87,7 @@ public class EndOfLevel : MonoBehaviour
             //}
         }
 
-            //if(PlayerPrefs.GetInt("ReachedLevel") < )
+        //if(PlayerPrefs.GetInt("ReachedLevel") < )
 
-        }
     }
-
+}
