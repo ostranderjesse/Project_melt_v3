@@ -5,46 +5,37 @@ using UnityEngine.UI;
 
 public class ShopManagerScript : MonoBehaviour
 {
-    public Text textObject1;
-   // public Text textObject2;
-    //public Text textObject3;
-    public Animation anim;
-  
+    [SerializeField] private Material highlightedMaterial;
+
+    [SerializeField] private Animator anim;
 
     public void Start()
     {
+        anim = GetComponentInChildren<Animator>();
 
-        anim = textObject1.GetComponent<Animation>();
-        
-
-        if(textObject1.GetComponent<Animation>() != null)
-        Debug.Log("animator found");
-
-        anim.Play("TextMovementAnimation");
- 
-
+        anim.SetBool("playHover", true);
     }
 
     private void Update()
     {
-        if (textObject1.GetComponent<Animation>() != null)
-            Debug.Log("animator ! found");
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-      
+        if(Physics.Raycast(ray, out hit))
+        {
+            var selection = hit.transform;
+            var selectionsRenderer = selection.GetComponent<Renderer>();
 
-    }
+            if(selectionsRenderer != CompareTag("Item")) // != null is original
+            {
+                selectionsRenderer.material = highlightedMaterial;
 
-    public void OnMouseOver()
-    {
-        //play animation
-        anim.Play("TextMovementAnimation");
-
-    }
-
-    public void OnMouseExit()
-    {
-        //stop animation
-       // anim1.Stop("TextMovementAnimation");
-     
+                anim.SetBool("playHover", false);
+            }
+            else if(selectionsRenderer == CompareTag("Item")) // this was not origonlly here
+            {
+                anim.SetBool("playHover", true);
+            }
+        }
     }
 }
