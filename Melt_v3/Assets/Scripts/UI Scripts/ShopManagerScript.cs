@@ -33,8 +33,6 @@ public class ShopManagerScript : MonoBehaviour
         if(_selected != null)
         {
             _selectionResponse.DeslectObject(_selected);
- 
-
         }
         #region create ray
         //create ray
@@ -48,7 +46,7 @@ public class ShopManagerScript : MonoBehaviour
             if(selection.CompareTag(selectableTag))
             {
                 _selected = selection;
-
+               
             }
         }
         #endregion

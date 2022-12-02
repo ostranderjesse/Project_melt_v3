@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78bbb4fd7045c740a76e4f8e11cb231, type: 3}
+  m_Name: TestEffect
+  m_EditorClassIdentifier: 
+  name: Damage Increase
+  description: increase the damage of each snowball
+  modelYouWantToUse: {fileID: -1489423214546217553, guid: 2992907e178c04d4e993136560d7f21e,
+    type: 3}
+  defaultMaterial: {fileID: 2100000, guid: f6cd297cced7a3e4685ef8ae06486a14, type: 2}
+  damage: 2
+  heatResistence: 0
+  snowBalls: 1

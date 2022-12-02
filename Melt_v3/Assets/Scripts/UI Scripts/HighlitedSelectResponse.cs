@@ -6,29 +6,50 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
 {
     [SerializeField] public Material highlitedMaterial;
     [SerializeField] public Material defaultMaterial;
+    public PowerUpDisplay powerUpDisplayRef;
 
-    public Animator anim;
+
+
+
+
+    // public Animator anim;
 
     public void SelectObject(Transform selection)
     {
         var selectionRenderer = selection.GetComponent<Renderer>();
+        var selectionAnimator = selection.GetComponentInChildren<Animator>();
+
+        if(selectionAnimator != null)
+        {
+            selectionAnimator.SetBool("playHover", true);
+        }
+
         if (selectionRenderer != null)
         {
-            //stop animation
+            
             selectionRenderer.material = this.highlitedMaterial;
-            anim.SetBool("playHover", true);
-            anim.Play("playHover");
+
         }
     }
 
     public void DeslectObject(Transform selection)
     {
         var selectionRender = selection.GetComponent<Renderer>();
+        var selectionAnimator = selection.GetComponentInChildren<Animator>();
         if (selectionRender != null)
         {
-            selectionRender.material = this.defaultMaterial;
-            anim.SetBool("playHover", false);
+            //selectionRender.material = this.defaultMaterial;
+
+            selectionRender.material = powerUpDisplayRef.modelMaterialYouWantToChange;
+            //anim.SetBool("playHover", false);
         }
+
+        if(selectionAnimator != null)
+        {
+            selectionAnimator.SetBool("playHover", false);
+            
+        }
+        
     }
 }
 
