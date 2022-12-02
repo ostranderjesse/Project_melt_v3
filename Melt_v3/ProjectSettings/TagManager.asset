@@ -7,6 +7,7 @@ TagManager:
   - Warp
   - ExitWarp
   - OWPlayer
+  - Selectable
   layers:
   - Default
   - TransparentFX

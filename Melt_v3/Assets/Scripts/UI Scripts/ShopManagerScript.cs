@@ -5,37 +5,59 @@ using UnityEngine.UI;
 
 public class ShopManagerScript : MonoBehaviour
 {
-    [SerializeField] private Material highlightedMaterial;
+    [SerializeField] private string selectableTag = "Selectable";
 
-    [SerializeField] private Animator anim;
+    //reference animatior controller
+    public Animator anim;
 
-    public void Start()
+
+    [SerializeField] private Transform _selected;
+    private RaycastHit hit;
+
+    private ISelectionResponse  _selectionResponse;
+
+
+    private void Awake()
     {
-        anim = GetComponentInChildren<Animator>();
+        _selectionResponse = GetComponent<ISelectionResponse>();
+    }
 
-        anim.SetBool("playHover", true);
+    private void Start()
+    {
+        anim.SetBool("playHover", false);
     }
 
     private void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //deselection/selection respon
+        if(_selected != null)
+        {
+            _selectionResponse.DeslectObject(_selected);
+ 
 
+        }
+        #region create ray
+        //create ray
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //selection detection
+        _selected = null;
         if(Physics.Raycast(ray, out hit))
         {
             var selection = hit.transform;
-            var selectionsRenderer = selection.GetComponent<Renderer>();
-
-            if(selectionsRenderer != CompareTag("Item")) // != null is original
+            if(selection.CompareTag(selectableTag))
             {
-                selectionsRenderer.material = highlightedMaterial;
+                _selected = selection;
 
-                anim.SetBool("playHover", false);
             }
-            else if(selectionsRenderer == CompareTag("Item")) // this was not origonlly here
-            {
-                anim.SetBool("playHover", true);
-            }
+        }
+        #endregion
+
+        //deselection/selection respon
+        if (_selected != null)
+        {
+            _selectionResponse.SelectObject(_selected);
+    
         }
     }
 }
