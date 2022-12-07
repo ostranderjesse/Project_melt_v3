@@ -16,12 +16,18 @@ public class PowerUpEffect : ScriptableObject
 
     public Material defaultMaterial;
     // public MeshFilter meshOfPowerUp; // sprite
+   // public GameObject ItemPrefab;
+
+   // public BoxCollider prefab_collider;
+
 
     public int damage; // the amount of each snowball
     public int heatResistence; //the rate ate which you melt
     public int snowBalls; // attack you can use
 
+
 }
+
 #endregion
 
 

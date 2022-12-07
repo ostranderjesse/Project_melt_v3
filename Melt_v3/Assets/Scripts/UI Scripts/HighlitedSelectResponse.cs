@@ -38,16 +38,12 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
         var selectionAnimator = selection.GetComponentInChildren<Animator>();
         if (selectionRender != null)
         {
-            //selectionRender.material = this.defaultMaterial;
-
             selectionRender.material = powerUpDisplayRef.modelMaterialYouWantToChange;
-            //anim.SetBool("playHover", false);
         }
 
         if(selectionAnimator != null)
         {
             selectionAnimator.SetBool("playHover", false);
-            
         }
         
     }
