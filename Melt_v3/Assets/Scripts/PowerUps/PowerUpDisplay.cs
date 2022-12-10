@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,28 +6,24 @@ public class PowerUpDisplay : MonoBehaviour
 {
 
     public PowerUpEffect powerUpEffectScriptableObjectRef;
+    public GameObject powerUpGameObject;
+
+    [Space]
+    public Text powerUpTextName;
     [Space]
     public MeshFilter modelYouWantToChange;
     [Space]
-    public Text powerUpTextName;
-
     public Material modelMaterialYouWantToChange;
-
-
-
-
-
+    [Space]
    public  BoxCollider m_collider;
+    [Space]
    public float m_ScaleX, m_ScaleY, m_ScaleZ;
-
-    //public GameObject gameobjectPrefab; // item you change to
-
-    public GameObject testItemMesh; // item you start with
-
-    public BoxCollider newCollider;
+    //[Space]
+    //public Text powerUpDamage;
+    //public Text powerUpHeatResistence;
+    public Text powerUpDescription;
 
 
-  
     #region more variables if needed
     //public Material defaultMaterial;
     //public Text description;
@@ -41,31 +36,27 @@ public class PowerUpDisplay : MonoBehaviour
     void Start()
     {
 
-        //testItemMesh = powerUpEffectScriptableObjectRef.ItemPrefab;
+        powerUpGameObject = this.gameObject;
 
 
         var selectionRenderer = this.GetComponent<Renderer>();
 
         m_collider = GetComponent<BoxCollider>();
 
-
-
         m_ScaleX = 2.0f;
         m_ScaleY = 2.0f;
         m_ScaleZ = 2.0f;
 
-       
-       
-
-
-        // Debug.Log(powerUpEffectScriptableObjectRef.name);
 
         powerUpTextName.text = powerUpEffectScriptableObjectRef.name;
 
+        
+
+        //powerUpHeatResistence.text = powerUpEffectScriptableObjectRef.heatResistence.ToString();
+
+        //powerUpDescription.text = powerUpEffectScriptableObjectRef.description.ToString();
+
         modelYouWantToChange.mesh = powerUpEffectScriptableObjectRef.modelYouWantToUse;
-
-       // selectionRenderer.material = modelMaterialYouWantToChange; // this.modelMaterialYouWantToChange is the original
-
 
         selectionRenderer.material = powerUpEffectScriptableObjectRef.defaultMaterial;
 
@@ -82,7 +73,10 @@ public class PowerUpDisplay : MonoBehaviour
         var selectionRenderer = this.GetComponent<Renderer>();
 
         selectionRenderer.material = powerUpEffectScriptableObjectRef.defaultMaterial;
+
+
+       // powerUpDamage.text = powerUpEffectScriptableObjectRef.damage.ToString();
+
+
     }
-
-
 }

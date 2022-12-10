@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: New Power Up Effect
   m_EditorClassIdentifier: 
   name: Winters Blessing
-  description: 
+  description: its a blessing of winter
   modelYouWantToUse: {fileID: 4300000, guid: 532b0a1e29745774fad60bcb89b319fd, type: 3}
   defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
-  ItemPrefab: {fileID: 1794441955, guid: b29d3985dd86f1442be771350adae0ec, type: 3}
-  damage: 0
-  heatResistence: 0
-  snowBalls: 0
+  damage: 5
+  heatResistence: 3
+  snowBalls: 3

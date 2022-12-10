@@ -1,23 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
 {
     [SerializeField] public Material highlitedMaterial;
     [SerializeField] public Material defaultMaterial;
-    public PowerUpDisplay powerUpDisplayRef;
 
 
 
 
+    //public void ClickedObjected(Transform selection)
+    //{
+    //    var selectionPowerUpEffectScriptRef = selection.GetComponent<PowerUpDisplay>();
 
-    // public Animator anim;
+
+
+
+    //    if (selectionPowerUpEffectScriptRef != null)
+    //    {
+    //        Debug.Log("ClickedObject method");
+
+    //       Destroy( selectionPowerUpEffectScriptRef.powerUpGameObject);
+
+    //    }
+
+       
+    //    //Destroy(selection);
+    //   // ItemDestroy(selection);
+
+
+    //}
 
     public void SelectObject(Transform selection)
     {
+        var selectedPowerupDisplayRef = selection.GetComponent<PowerUpDisplay>();
+
         var selectionRenderer = selection.GetComponent<Renderer>();
         var selectionAnimator = selection.GetComponentInChildren<Animator>();
+
+        if(selectedPowerupDisplayRef != null)
+        {
+            Debug.Log("Powerup display reference found! on select");
+           // selectedPowerupDisplayRef.powerUpDamage.ToString();
+        }
 
         if(selectionAnimator != null)
         {
@@ -27,18 +52,22 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
         if (selectionRenderer != null)
         {
             
-            selectionRenderer.material = this.highlitedMaterial;
+            selectionRenderer.material = highlitedMaterial; // this.highlightedMaterial
 
         }
     }
 
     public void DeslectObject(Transform selection)
     {
+        var selectedPowerupDisplayRef = selection.GetComponent<PowerUpDisplay>();
+
         var selectionRender = selection.GetComponent<Renderer>();
         var selectionAnimator = selection.GetComponentInChildren<Animator>();
+
         if (selectionRender != null)
         {
-            selectionRender.material = powerUpDisplayRef.modelMaterialYouWantToChange;
+            selectionRender.material = selectedPowerupDisplayRef.modelMaterialYouWantToChange;
+
         }
 
         if(selectionAnimator != null)

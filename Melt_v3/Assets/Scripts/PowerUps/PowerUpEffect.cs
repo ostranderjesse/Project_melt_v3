@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 #region old code for scriptableobjects
@@ -10,21 +9,15 @@ public class PowerUpEffect : ScriptableObject
     public new string name; //name of power up
     public string description; //brief description of power up
 
-
-   // public MeshFilter modelYouWantToChange;
     public Mesh modelYouWantToUse;
 
     public Material defaultMaterial;
-    // public MeshFilter meshOfPowerUp; // sprite
-   // public GameObject ItemPrefab;
-
-   // public BoxCollider prefab_collider;
-
 
     public int damage; // the amount of each snowball
     public int heatResistence; //the rate ate which you melt
     public int snowBalls; // attack you can use
 
+    //public GameObject powerupGameObject; // used to spawn in the item you want to click and hold the power up
 
 }
 
