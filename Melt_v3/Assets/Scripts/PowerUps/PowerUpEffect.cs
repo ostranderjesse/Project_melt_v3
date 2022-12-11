@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 #region old code for scriptableobjects
 [CreateAssetMenu(menuName = "PowerUpEffects/PurchasePower")]

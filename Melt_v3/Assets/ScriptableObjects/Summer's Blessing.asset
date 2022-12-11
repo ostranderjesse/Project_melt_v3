@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78bbb4fd7045c740a76e4f8e11cb231, type: 3}
-  m_Name: TestEffect
+  m_Name: Summer's Blessing
   m_EditorClassIdentifier: 
-  name: Damage Increase
-  description: increase the damage of each snowball
+  name: Summer's Blessing
+  description: You hardly notice how how it is out but suffer damage
   modelYouWantToUse: {fileID: -1489423214546217553, guid: 2992907e178c04d4e993136560d7f21e,
     type: 3}
   defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
-  damage: 2
-  heatResistence: 0
-  snowBalls: 1
+  damage: -1
+  heatResistence: 5
+  snowBalls: 0
