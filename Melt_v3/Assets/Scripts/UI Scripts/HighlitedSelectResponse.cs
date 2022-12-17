@@ -22,14 +22,16 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
 
     public void SelectObject(Transform selection)
     {
-        var selectedPowerupDisplayRef = selection.GetComponent<PowerUpDisplay>();
-
-       // var selectedPowerupEffect = selection.GetComponent<PowerUpDisplay>();
+        
 
         var selectionRenderer = selection.GetComponent<Renderer>();
         var selectionAnimator = selection.GetComponentInChildren<Animator>();
 
-        if(selectedPowerupDisplayRef != null)
+        var selectedPowerupDisplayRef = selection.GetComponent<PowerUpDisplay>();
+
+
+
+        if (selectedPowerupDisplayRef != null)
         {
             uiDisplay.SetActive(true);
             Debug.Log("Powerup display reference found! On select");
@@ -41,6 +43,8 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
             ammoText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.snowBalls.ToString();
 
         }
+        else
+           return;
 
         if(selectionAnimator != null)
         {
@@ -53,6 +57,7 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
             selectionRenderer.material = highlitedMaterial; // this.highlightedMaterial
 
         }
+
     }
 
     public void DeslectObject(Transform selection)
@@ -76,10 +81,6 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
         }
         
     }
-
-
-
-
 
 }
 

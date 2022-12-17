@@ -12,12 +12,9 @@ GameObject:
   - component: {fileID: 208798474140552526}
   - component: {fileID: 208798474140552497}
   - component: {fileID: 208798474140552496}
-  - component: {fileID: 208798474140552525}
-  - component: {fileID: 208798474140552524}
-  - component: {fileID: 4796803532321971586}
   m_Layer: 0
-  m_Name: player
-  m_TagString: Player
+  m_Name: playerBlueSkin 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c532880e607f8c84d8b9bf0c46a522ad, type: 2}
+  - {fileID: -6847784286348654077, guid: cec369e2e61d90f43b6a1e689641d5ea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,64 +95,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &208798474140552525
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208798474140552499}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &208798474140552524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208798474140552499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12d600ec973f123439970dce2ae95784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 208798474140552525}
-  player: {fileID: 208798474140552499}
-  moveSpeed: 10
-  _gravity: 9.81
-  jumpSpeed: 8
-  moveDirection: {x: 0, y: 0, z: 0}
-  moveVelocity: 0
-  extraJumps: 0
-  extraJumpValue: 3
-  warpEnterence: []
-  warpExit: []
-  facingRight: 1
-  playerMovementRef: {fileID: 0}
---- !u!114 &4796803532321971586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208798474140552499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f25c59f29f4d1241b6bd87f354f2934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MAXHEALTH: 100
-  currentHealth: 0
-  healthBarRef: {fileID: 0}
 --- !u!1 &7635188512795529601
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +154,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c532880e607f8c84d8b9bf0c46a522ad, type: 2}
+  - {fileID: -6847784286348654077, guid: cec369e2e61d90f43b6a1e689641d5ea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

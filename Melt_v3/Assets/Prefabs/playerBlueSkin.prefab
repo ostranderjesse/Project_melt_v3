@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 208798474140552524}
   - component: {fileID: 4796803532321971586}
   m_Layer: 0
-  m_Name: player
+  m_Name: playerBlueSkin
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c532880e607f8c84d8b9bf0c46a522ad, type: 2}
+  - {fileID: -6847784286348654077, guid: cec369e2e61d90f43b6a1e689641d5ea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -215,7 +215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c532880e607f8c84d8b9bf0c46a522ad, type: 2}
+  - {fileID: -6847784286348654077, guid: cec369e2e61d90f43b6a1e689641d5ea, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

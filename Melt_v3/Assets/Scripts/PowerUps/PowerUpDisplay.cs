@@ -27,9 +27,9 @@ public class PowerUpDisplay : MonoBehaviour
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+   public void Start()
     {
-        var selectionRenderer = GetComponentInChildren<Renderer>(); //this.getcomponent<Renderer>();
+        //var selectionRenderer = GetComponentInChildren<Renderer>(); //this.getcomponent<Renderer>();
 
         m_collider = GetComponentInChildren<BoxCollider>(); // getcomponent<BoxCollider>();
 
@@ -42,9 +42,9 @@ public class PowerUpDisplay : MonoBehaviour
 
         modelYouWantToChange.mesh = powerUpEffectScriptableObjectRef.modelYouWantToUse;
 
-        selectionRenderer.material = powerUpEffectScriptableObjectRef.defaultMaterial;
+        //selectionRenderer.material = powerUpEffectScriptableObjectRef.defaultMaterial;
 
-        modelMaterialYouWantToChange = selectionRenderer.material;
+       // modelMaterialYouWantToChange = selectionRenderer.material;
 
         m_collider.size = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
 
