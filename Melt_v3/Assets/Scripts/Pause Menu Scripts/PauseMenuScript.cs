@@ -38,7 +38,7 @@ public class PauseMenuScript : MonoBehaviour
         GamegameIsPaused = true;
     }
 
-    public void LoadMenu()
+    public void LoadMainMenu()
     {
         Debug.Log("Loading main menu");
         Time.timeScale = 1f;
