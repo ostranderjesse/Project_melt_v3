@@ -24,6 +24,7 @@ public class ShopManagerScript : MonoBehaviour
     private void Start()
     {
         anim.SetBool("playHover", false);
+
     }
 
     private void Update()
@@ -69,15 +70,34 @@ public class ShopManagerScript : MonoBehaviour
                     Debug.Log(selection.GetComponent<PowerUpDisplay>().powerUpTextName.text);
 
 
-                    
+
                     //add buffs or skins to character sections
                     //destroy gameobject you clicked
 
-                   //check to see if enough curency is obtained
-                   //if currency != enough dont let the player buy the item they are hovering over
+                    //check to see if enough curency is obtained
+                    //if currency != enough dont let the player buy the item they are hovering over
+                    if (selection.name == "PowerUp (1)")
+                    {
+                        Debug.Log("PowerUp (1) found");
+                        PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
+                        ph.SavePlayerData();
 
-                    Destroy(selection.gameObject);
+                        Destroy(selection.gameObject);
+                    }
+                    else if( selection.name != "PowerUp (1)")
+                    {
+                        Debug.Log("PowerUp (1)  not found");
 
+                        Destroy(selection.gameObject);
+                    }
+
+                  //  Destroy(selection.gameObject); // origonal area of deleting item
+
+                    
+
+
+                    //add buff
+                    
 
                    
 
@@ -101,4 +121,5 @@ public class ShopManagerScript : MonoBehaviour
     
         }
     }
+
 }

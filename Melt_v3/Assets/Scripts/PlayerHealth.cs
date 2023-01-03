@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public float MAXHEALTH = 1.0f;
+    public  float MAXHEALTH = 1.0f;
     public float currentHealth;
 
     public HealthBar healthBarRef;
@@ -51,9 +51,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public  void SavePlayerData()
+    {
+        SaveSystem.SavePlayerPerks(this);
+    }
 
-
-
+    public  void LoadPlayerData()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        MAXHEALTH = data.totalHealth;
+    }
 
 
 

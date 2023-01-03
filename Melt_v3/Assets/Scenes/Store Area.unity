@@ -197,7 +197,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7769517, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2434,7 +2434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9da7b568cd10b7468c1455e5fd6513d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpEffectScriptableObjectRef: {fileID: 11400000, guid: d0ee8956baf040141b0508b3ff7e16b4,
+  powerUpEffectScriptableObjectRef: {fileID: 11400000, guid: f3fe3e5b8154af34d980719098c9e398,
     type: 2}
   powerUpTextName: {fileID: 5884190773795435860}
   modelYouWantToChange: {fileID: 5884190773200597860}

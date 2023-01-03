@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78bbb4fd7045c740a76e4f8e11cb231, type: 3}
+  m_Name: HealthUpgrade
+  m_EditorClassIdentifier: 
+  name: Health Upgrade
+  description: increase +50
+  modelYouWantToUse: {fileID: 4300000, guid: 13d51054d8b6f45449e0d0fa4b68e294, type: 3}
+  defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
+  damage: 0
+  heatResistence: 0
+  snowBalls: 0
+  NEWMAXHEALTHTOTAL: 150

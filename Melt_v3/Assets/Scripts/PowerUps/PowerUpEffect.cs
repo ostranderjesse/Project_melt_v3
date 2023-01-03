@@ -16,6 +16,8 @@ public class PowerUpEffect : ScriptableObject
     public int heatResistence; //the rate ate which you melt
     public int snowBalls; // attack you can use
 
+    public float NEWMAXHEALTHTOTAL;
+
     //public GameObject powerupGameObject; // used to spawn in the item you want to click and hold the power up
 
 }
