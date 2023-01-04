@@ -52,7 +52,8 @@ public static class SaveSystem
         {
             Debug.Log("File exists");
             File.Delete(path);
-       
+            Debug.Log("File deleted");
+
 #if UNITY_EDITOR
             UnityEditor.AssetDatabase.Refresh();
 #endif

@@ -43,8 +43,8 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
             ammoText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.snowBalls.ToString();
 
         }
-        else
-           return;
+       // else
+          // return;
 
         if(selectionAnimator != null)
         {

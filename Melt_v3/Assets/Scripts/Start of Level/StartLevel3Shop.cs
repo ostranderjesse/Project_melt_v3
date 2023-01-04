@@ -1,15 +1,14 @@
-﻿
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class StartLevel2 : MonoBehaviour
+public class StartLevel3Shop : MonoBehaviour
 {
-    public bool isInsideLevel2 = false;
 
+    public bool isInsideLevel3 = false;
 
     public void Start()
     {
-        isInsideLevel2 = false;
+        isInsideLevel3 = false;
     }
 
 
@@ -17,7 +16,7 @@ public class StartLevel2 : MonoBehaviour
     {
         if (other.tag == "OWPlayer")
         {
-            isInsideLevel2 = true;
+            isInsideLevel3 = true;
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -29,9 +28,9 @@ public class StartLevel2 : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
 
-                SceneManager.LoadScene("test_demoV2");// name of overworld scene here
+                SceneManager.LoadScene("Store Area");// name of overworld scene here
 
-                Debug.Log("Level 2 entered");
+                Debug.Log("Level 3 entered");
             }
         }
     }
@@ -40,19 +39,17 @@ public class StartLevel2 : MonoBehaviour
     {
         if (other.tag == "OWPlayer")
         {
-            isInsideLevel2 = false;
+            isInsideLevel3 = false;
         }
     }
 
-
-
     public void Update()
     {
-        if (isInsideLevel2 == true)
+        if (isInsideLevel3 == true)
         {
             if (Input.GetKeyDown("space"))
             {
-                SceneManager.LoadScene("test_demoV2");// name of overworld scene here
+                SceneManager.LoadScene("Store Area");// name of overworld scene here
             }
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -64,9 +61,11 @@ public class StartLevel2 : MonoBehaviour
 
 
         }
-        else if (!isInsideLevel2)
+        else if (!isInsideLevel3)
         {
-            Debug.Log("is inside level 2 = false");
+            Debug.Log("is inside level 3 = false");
         }
     }
+
+
 }

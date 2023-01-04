@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManagerScript : MonoBehaviour
 {
     [SerializeField] private string selectableTag = "Selectable";
+    [SerializeField] private string PowerupName = "HealthUpgrade";
     [Space]
     //reference animatior controller
     public Animator anim;
@@ -16,8 +18,12 @@ public class ShopManagerScript : MonoBehaviour
     public GameObject uiItemDisplay;
 
     //added to try saving game info
-    public GameObject purchasedItem;
+   // public GameObject purchasedItem;
     //stop added to try saveing info ends here
+
+
+
+ 
 
     private void Awake()
     {
@@ -28,9 +34,18 @@ public class ShopManagerScript : MonoBehaviour
     {
         anim.SetBool("playHover", false);
 
-        purchasedItem = GameObject.Find("PowerUp");
+        //purchasedItem = GameObject.Find("PowerUp");
 
-        Debug.Log("Purchase Item Name is:" + purchasedItem.name);
+
+        //powerUpTextName.text = powerUpEffectScriptableObjectRef.name;
+
+
+
+   
+
+       
+
+      //  Debug.Log("Purchase Item Name is:" + purchasedItem.name);
 
     }
 
@@ -77,6 +92,35 @@ public class ShopManagerScript : MonoBehaviour
                     Debug.Log(selection.GetComponent<PowerUpDisplay>().powerUpTextName.text);
 
 
+                    if(selection.GetComponent<PowerUpDisplay>().powerUpTextName.name == "Item txt test")
+                    {
+                        Debug.Log("particular power up found!");
+
+
+                         PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
+
+                        ph.MAXHEALTH = 150.0f;
+
+                        SaveSystem.SavePlayerPerks(ph);
+                       
+                        //ph.SavePlayerData();
+                       
+                       
+                        
+
+                       // Destroy(selection.gameObject);
+
+                        //ph.SavePlayerData(this);
+                       // SaveSystem.SavePlayerPerks(ph);
+
+
+                    }
+                    else
+                    {
+                        Debug.Log("particular power up  not found!");
+
+                        Debug.Log(selection.GetComponent<PowerUpDisplay>().powerUpTextName.name);
+                    }
 
                     //add buffs or skins to character sections
                     //destroy gameobject you clicked
@@ -85,44 +129,31 @@ public class ShopManagerScript : MonoBehaviour
                     //if currency != enough dont let the player buy the item they are hovering over
 
 
+                    //if (selection == purchasedItem)
+                    //{
+                    //    Debug.Log("PowerUp (1) found");
+                    //    // PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
+
+                    //    // ph.SavePlayerData();
+
+                    //    // Destroy(selection.gameObject);
+                    //}
+                    //else if (selection.name != "PowerUp")
+                    //{
+                    //    Debug.Log("PowerUp  not found power ups name is: " + selection.name);
+
+                    //    //Destroy(selection.gameObject);
+                    //}
+
+                    //  Destroy(selection.gameObject); // origonal area of deleting item
 
 
-
-
-
-
-
-
-
-
-
-
-
-                    if (selection == purchasedItem)
-                    {
-                        Debug.Log("PowerUp (1) found");
-                        PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
-                        
-                        ph.SavePlayerData();
-
-                        Destroy(selection.gameObject);
-                    }
-                    else if( selection.name != "PowerUp")
-                    {
-                        Debug.Log("PowerUp  not found power ups name is: " + selection.name);
-
-                        //Destroy(selection.gameObject);
-                    }
-
-                  //  Destroy(selection.gameObject); // origonal area of deleting item
-
-                    
 
 
                     //add buff
-                    
 
-                   
+
+
 
                 }
 

@@ -8,17 +8,19 @@ public class MainMenuScript : MonoBehaviour
     {
         //change this to tutorial level later
         SceneManager.LoadScene("OverWorld"); // overworld
-
-
     }
 
-    public void GameFileLoad()
+    public void GameFileLoad() // load 
     {
         string path = Application.persistentDataPath + "/Player.Perks";
 
         if(File.Exists(path))
         {
             SceneManager.LoadScene("OverWorld");
+            //button = active
+        } else if (!File.Exists(path))
+        {
+            //button = inactive
         }
 
         

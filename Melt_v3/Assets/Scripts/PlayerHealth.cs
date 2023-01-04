@@ -1,4 +1,4 @@
-﻿
+﻿using System.IO;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -9,8 +9,26 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBarRef;
 
+    public void Awake()
+    {
+        string path = Application.persistentDataPath + "/Player.Perks";
+
+        //check to see if file exists
+        if (File.Exists(path))
+        {
+            SaveSystem.LoadPlayer();
+
+        }else if(!File.Exists(path))
+        {
+            Debug.Log("no file exists in: " + path);
+        }
+
+
+    }
+
     public void Start()
     {
+        
         healthBarRef = FindObjectOfType<HealthBar>();
 
         if(healthBarRef == null)
