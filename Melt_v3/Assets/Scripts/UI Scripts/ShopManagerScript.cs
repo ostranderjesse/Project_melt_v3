@@ -15,6 +15,9 @@ public class ShopManagerScript : MonoBehaviour
     private ISelectionResponse  _selectionResponse;
     public GameObject uiItemDisplay;
 
+    //added to try saving game info
+    public GameObject purchasedItem;
+    //stop added to try saveing info ends here
 
     private void Awake()
     {
@@ -24,6 +27,10 @@ public class ShopManagerScript : MonoBehaviour
     private void Start()
     {
         anim.SetBool("playHover", false);
+
+        purchasedItem = GameObject.Find("PowerUp");
+
+        Debug.Log("Purchase Item Name is:" + purchasedItem.name);
 
     }
 
@@ -76,19 +83,35 @@ public class ShopManagerScript : MonoBehaviour
 
                     //check to see if enough curency is obtained
                     //if currency != enough dont let the player buy the item they are hovering over
-                    if (selection.name == "PowerUp (1)")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    if (selection == purchasedItem)
                     {
                         Debug.Log("PowerUp (1) found");
                         PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
+                        
                         ph.SavePlayerData();
 
                         Destroy(selection.gameObject);
                     }
-                    else if( selection.name != "PowerUp (1)")
+                    else if( selection.name != "PowerUp")
                     {
-                        Debug.Log("PowerUp (1)  not found");
+                        Debug.Log("PowerUp  not found power ups name is: " + selection.name);
 
-                        Destroy(selection.gameObject);
+                        //Destroy(selection.gameObject);
                     }
 
                   //  Destroy(selection.gameObject); // origonal area of deleting item

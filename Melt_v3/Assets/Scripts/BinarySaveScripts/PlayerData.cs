@@ -9,7 +9,10 @@ public class PlayerData
 
     public PlayerData(PlayerHealth health )
     {
-        totalHealth = health.MAXHEALTH;
+        //original code
+        //totalHealth = health.MAXHEALTH;
+
+        health.MAXHEALTH = totalHealth;
 
     }
 
