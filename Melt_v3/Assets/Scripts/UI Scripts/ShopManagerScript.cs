@@ -99,7 +99,7 @@ public class ShopManagerScript : MonoBehaviour
 
                          PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
 
-                        ph.MAXHEALTH = 150.0f;
+                       // ph.MAXHEALTH = 150.0f;
 
                         SaveSystem.SavePlayerPerks(ph);
                        
