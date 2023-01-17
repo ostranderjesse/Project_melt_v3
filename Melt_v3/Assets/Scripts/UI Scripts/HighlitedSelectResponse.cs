@@ -40,7 +40,7 @@ public class HighlitedSelectResponse : MonoBehaviour, ISelectionResponse
 
             damageText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.damage.ToString();
             heatResText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.heatResistence.ToString();
-            ammoText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.snowBalls.ToString();
+            ammoText.text = selectedPowerupDisplayRef.powerUpEffectScriptableObjectRef.ammo.ToString();
 
         }
        // else

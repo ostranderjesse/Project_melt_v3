@@ -17,6 +17,7 @@ MonoBehaviour:
   modelYouWantToUse: {fileID: -1489423214546217553, guid: 2992907e178c04d4e993136560d7f21e,
     type: 3}
   defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
-  damage: -1
-  heatResistence: 5
-  snowBalls: 0
+  damage: 1
+  heatResistence: 1
+  snowBalls: 1
+  HEALTHMAXUPGRADE: 0

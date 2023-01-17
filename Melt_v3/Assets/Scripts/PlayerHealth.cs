@@ -11,17 +11,17 @@ public class PlayerHealth : MonoBehaviour
 
     public void Awake()
     {
-        string path = Application.persistentDataPath + "/Player.Perks";
+        //string path = Application.persistentDataPath + "/Player.Perks";
 
-        //check to see if file exists
-        if (File.Exists(path))
-        {
-            SaveSystem.LoadPlayer();
+        ////check to see if file exists
+        //if (File.Exists(path))
+        //{
+        //    SaveSystem.LoadPlayer();
 
-        }else if(!File.Exists(path))
-        {
-            Debug.Log("no file exists in: " + path);
-        }
+        //}else if(!File.Exists(path))
+        //{
+        //    Debug.Log("no file exists in: " + path);
+        //}
 
 
     }
@@ -69,16 +69,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public  void SavePlayerData()
-    {
-        SaveSystem.SavePlayerPerks(this);
-    }
+    //public  void SavePlayerData()
+    //{
+    //    SaveSystem.SavePlayerPerks(this);
+    //}
 
-    public  void LoadPlayerData()
-    {
-        PlayerData data = SaveSystem.LoadPlayer();
-        MAXHEALTH = data.totalHealth;
-    }
+    //public  void LoadPlayerData()
+    //{
+    //    PlayerData data = SaveSystem.LoadPlayer();
+    //    MAXHEALTH = data.totalHealth;
+    //}
 
 
 

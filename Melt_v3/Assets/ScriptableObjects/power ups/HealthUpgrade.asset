@@ -19,4 +19,4 @@ MonoBehaviour:
   damage: 0
   heatResistence: 0
   snowBalls: 0
-  NEWMAXHEALTHTOTAL: 150
+  HEALTHMAXUPGRADE: 150

@@ -11,6 +11,12 @@ public class EndOfLevel3 : MonoBehaviour
     {
         PlayerPrefs.GetInt("LevelsUnlocked");
 
+
+
+
+
+
+
         if (PlayerPrefs.GetInt("LevelsUnlocked", 3) == 3) //,3
         {
 

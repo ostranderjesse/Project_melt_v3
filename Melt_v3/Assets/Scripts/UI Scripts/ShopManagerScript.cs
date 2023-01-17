@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class ShopManagerScript : MonoBehaviour
 {
     [SerializeField] private string selectableTag = "Selectable";
-    [SerializeField] private string PowerupName = "HealthUpgrade";
+
+    [SerializeField] private string HealthPerkName1 = "HealthPerk1";
+    [SerializeField] private string ammoPerkName1 = "AmmoPerk1";
+    [SerializeField] private string damagePerkName1 = "DamagePerk1";
+    [SerializeField] private string heatResPerkName1 = "HeatResistencePerk1";
+
+    //add world perks if this works
+
     [Space]
     //reference animatior controller
     public Animator anim;
@@ -14,45 +22,93 @@ public class ShopManagerScript : MonoBehaviour
     [SerializeField] private Transform _selected;
 
     private RaycastHit hit;
-    private ISelectionResponse  _selectionResponse;
+    private ISelectionResponse _selectionResponse;
     public GameObject uiItemDisplay;
 
+    public GameObject perkGameObject1;
+    public GameObject perkGameObject2;
+    public GameObject perkGameObject3;
+
+    public UnlockableMatrixScript unlockableMatrixRef;
+
+   [SerializeField] public static string unlockMatrixPath;
+
+
+    #region nots no how to make it work
     //added to try saving game info
-   // public GameObject purchasedItem;
+    // public GameObject purchasedItem;
     //stop added to try saveing info ends here
+    #endregion
 
 
 
- 
 
     private void Awake()
     {
         _selectionResponse = GetComponent<ISelectionResponse>();
+
+
+        //cache the path
+        unlockMatrixPath = $"{Application.persistentDataPath}/UnlockMatrix.json";
+
+        if (File.Exists(unlockMatrixPath))
+        {
+
+            Debug.Log("File exists");
+
+            string json = File.ReadAllText(unlockMatrixPath);
+            unlockableMatrixRef = JsonUtility.FromJson<UnlockableMatrixScript>(json);
+
+            RenderShop();
+            //LoadJson();
+
+        }
+        else if(!File.Exists(unlockMatrixPath))
+        {
+            Debug.Log("File Should not exist");
+            RenderShop();
+        }
+        
+
+
     }
 
     private void Start()
     {
+        //cache the path
+        //unlockMatrixPath = $"{Application.persistentDataPath}/UnlockMatrix.json";
+
+        //if (File.Exists(unlockMatrixPath))
+        //{
+        //    string json = File.ReadAllText(unlockMatrixPath);
+        //    unlockableMatrixRef = JsonUtility.FromJson<UnlockableMatrixScript>(json);
+
+        //    RenderShop();
+
+        //}
+
+
+        //RenderShop();
+
         anim.SetBool("playHover", false);
 
-        //purchasedItem = GameObject.Find("PowerUp");
-
-
-        //powerUpTextName.text = powerUpEffectScriptableObjectRef.name;
-
-
-
-   
-
-       
-
-      //  Debug.Log("Purchase Item Name is:" + purchasedItem.name);
 
     }
 
     private void Update()
     {
+        if(File.Exists(unlockMatrixPath))
+        {
+            RenderShop();
+        }
+        //else if(!File.Exists(unlockMatrixPath))
+        //{
+        //    RenderShop();
+        //}
+
+
         //deselection/selection respon - hover
-        if(_selected != null)
+        if (_selected != null)
         {
             _selectionResponse.DeslectObject(_selected);
         }
@@ -63,102 +119,73 @@ public class ShopManagerScript : MonoBehaviour
 
         //selection detection
         _selected = null;
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             var selection = hit.transform;
-            if(selection.CompareTag(selectableTag))
+            if (selection.CompareTag(selectableTag))
             {
                 _selected = selection;
-               
+
             }
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
 
             if (Physics.Raycast(ray, out hit))
             {
                 var selection = hit.transform;
-        
-                
+
+
 
                 if (selection.CompareTag(selectableTag))
                 {
-                    
+
                     _selected = selection;
 
-                
+
 
                     Debug.Log(selection.GetComponent<PowerUpDisplay>().powerUpTextName.text);
 
 
-                    if(selection.GetComponent<PowerUpDisplay>().powerUpTextName.name == "Item txt test")
+                    if (selection.GetComponent<PowerUpDisplay>().powerUpTextName.text == "Health perk 1")// .name
                     {
-                        Debug.Log("particular power up found!");
+                        Debug.Log("Health power up found!");
 
+                        BuyHealthPerk1();
 
-                         PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
-
-                       // ph.MAXHEALTH = 150.0f;
-
-                        SaveSystem.SavePlayerPerks(ph);
-                       
-                        //ph.SavePlayerData();
-                       
-                       
-                        
-
-                       // Destroy(selection.gameObject);
-
-                        //ph.SavePlayerData(this);
-                       // SaveSystem.SavePlayerPerks(ph);
-
+                        //Destroy(selection.gameObject);
 
                     }
-                    else
-                    {
-                        Debug.Log("particular power up  not found!");
 
-                        Debug.Log(selection.GetComponent<PowerUpDisplay>().powerUpTextName.name);
+                    if (selection.GetComponent<PowerUpDisplay>().powerUpTextName.text == "Ammo Perk 1")
+                    {
+                        Debug.Log("Ammo power up found!");
+                        BuyAmmoPerk1();
+
                     }
 
-                    //add buffs or skins to character sections
-                    //destroy gameobject you clicked
+                    if (selection.GetComponent<PowerUpDisplay>().powerUpTextName.text == "Damage perk 1")
+                    {
+                        Debug.Log("Ammo power up found!");
+                        BuyDamagePerk1();
 
-                    //check to see if enough curency is obtained
-                    //if currency != enough dont let the player buy the item they are hovering over
-
-
-                    //if (selection == purchasedItem)
-                    //{
-                    //    Debug.Log("PowerUp (1) found");
-                    //    // PlayerHealth ph = gameObject.GetComponent<PlayerHealth>();
-
-                    //    // ph.SavePlayerData();
-
-                    //    // Destroy(selection.gameObject);
-                    //}
-                    //else if (selection.name != "PowerUp")
-                    //{
-                    //    Debug.Log("PowerUp  not found power ups name is: " + selection.name);
-
-                    //    //Destroy(selection.gameObject);
-                    //}
-
-                    //  Destroy(selection.gameObject); // origonal area of deleting item
+                    }
 
 
+                    if (selection.GetComponent<PowerUpDisplay>().powerUpTextName.text == "Heat Res Perk 1")
+                    {
+                        Debug.Log("Heat res power up found!");
+                        BuyHeatResPerk1();
 
-
-                    //add buff
-
-
-
+                    }
 
                 }
 
             }
         }
+
+        #endregion
 
         //deactivate the UI display when clicked
         if (_selected == null)
@@ -166,14 +193,119 @@ public class ShopManagerScript : MonoBehaviour
             uiItemDisplay.SetActive(false);
         }
 
-        #endregion
+
 
         //deselection/selection respon
         if (_selected != null)
         {
             _selectionResponse.SelectObject(_selected);
-    
+
         }
     }
+
+
+
+    //methods
+
+    //buy health perks
+    public void BuyHealthPerk1()
+    {
+        unlockableMatrixRef.hasHealthPerk1 = true;
+        RenderShop();
+        SaveJson();
+    }
+
+
+    public void BuyAmmoPerk1()
+    {
+        unlockableMatrixRef.hasAmmoPerk1 = true;
+        RenderShop();
+        SaveJson();
+    }
+
+ 
+    public void BuyDamagePerk1()
+    {
+        unlockableMatrixRef.hasDamagePerk1 = true;
+        RenderShop();
+        SaveJson();
+    }
+
+    public void BuyHeatResPerk1()
+    {
+        unlockableMatrixRef.hasHeatResistencePerk1 = true;
+        RenderShop();
+        SaveJson();
+    }
+
+
+
+
+    public void RenderShop()
+    {
+
+        if (unlockableMatrixRef.hasHealthPerk1 == true) 
+        {
+            Debug.Log("Destroy  health perk Game object");
+            
+            perkGameObject1.SetActive(false);
+        }
+        
+        if (unlockableMatrixRef.hasAmmoPerk1 == true)
+        {
+            Debug.Log("Destroy  ammo perk Game object");
+            perkGameObject2.SetActive(false);
+           
+        }
+        
+        if (unlockableMatrixRef.hasDamagePerk1 == true)
+        {
+            Debug.Log("Destroy  damage perk Game object");
+            perkGameObject3.SetActive(false);
+            
+        }
+  
+    }
+
+    private void SaveJson()
+    {
+        string json = JsonUtility.ToJson(unlockableMatrixRef);
+        File.WriteAllText(unlockMatrixPath, json);
+    }
+    public  void DelSaveJson()
+    {
+        string json = JsonUtility.ToJson(unlockableMatrixRef);
+
+
+        Debug.Log("Created json to look at now deleted");
+        if(File.Exists(unlockMatrixPath))
+        {
+            Debug.Log("File json now deleted" + json);
+             File.Delete(unlockMatrixPath); //unlockMatrixPath
+            unlockableMatrixRef.hasAmmoPerk1 = false;
+            unlockableMatrixRef.hasDamagePerk1 = false;
+            unlockableMatrixRef.hasHealthPerk1 = false;
+            unlockableMatrixRef.hasHeatResistencePerk1 = false;
+
+
+            Debug.Log("Files from:" + unlockMatrixPath + "has been deleted");
+
+            if(!File.Exists(unlockMatrixPath))
+            {
+                Debug.Log("File: " + unlockMatrixPath + "does not exist");
+            }
+       }
+
+    }
+
+    public void LoadJson()
+    {
+        string json = JsonUtility.ToJson(unlockableMatrixRef);
+        File.ReadAllText(unlockMatrixPath);
+        
+    }
+
+
+
 
 }

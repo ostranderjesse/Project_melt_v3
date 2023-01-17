@@ -3,6 +3,29 @@ using UnityEngine.SceneManagement;
 using System.IO;
 public class MainMenuScript : MonoBehaviour
 {
+  //  public  ShopManagerScript shopManagerScriptRef;
+
+
+    public void Awake()
+    {
+        // shopManagerScriptRef = GetComponent<ShopManagerScript>();
+        //string json = Application.persistentDataPath + "UnlockMatrix.json";
+
+        if (File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+        {
+            Debug.Log("unlockmatrixpath exists");
+        }
+        else if (!File.Exists(ShopManagerScript.unlockMatrixPath))
+        {
+            Debug.Log("unlockableMatrixPath doe not exist finally this is the awake funtion ");
+        }
+
+    }
+
+    public void Update()
+    {
+       // Debug.Log("saved data:" + JsonUtility.FromJson())
+    }
 
     public void GameStart()
     {
@@ -12,37 +35,44 @@ public class MainMenuScript : MonoBehaviour
 
     public void GameFileLoad() // load 
     {
-        string path = Application.persistentDataPath + "/Player.Perks";
+        string json = Application.persistentDataPath + "UnlockMatrix.json";
 
-        if(File.Exists(path))
+        if (File.Exists(json))
         {
             SceneManager.LoadScene("OverWorld");
             //button = active
-        } else if (!File.Exists(path))
+        }
+        else if (!File.Exists(json))
         {
-            //button = inactive
+            //make button inactive
         }
 
-        
+
     }
 
 
-    //public void CreditsArea()
-    //{
-    //    SceneManager.LoadScene("Credits");
-    //}
+
 
     public void DeleteSaveFiles()
     {
+       // string unlockMatrixPath = $"{Application.persistentDataPath}/UnlockMatrix.json";
+        // string json = Application.persistentDataPath + "UnlockMatrix.json";
+
         PlayerPrefs.DeleteAll();
 
         //delete binary files
 
-        SaveSystem.WipeSavedData();
+    
+        if (File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+        {
+            Debug.Log("unlockmatrixpath exists");
+            //SaveSystem.WipeSavedData();
 
-        Debug.Log("Deleted All saved File Information");
+        }
+        else if(!File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+        {
+            Debug.Log("unlockableMatrixPath does not exist  this is the delete function you made");
+        }
     }
-
-
 
 }

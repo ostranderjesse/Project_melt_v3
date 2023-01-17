@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78bbb4fd7045c740a76e4f8e11cb231, type: 3}
-  m_Name: Winters edge
+  m_Name: World 2 Perk
   m_EditorClassIdentifier: 
-  name: Winters Edge
-  description: Live on the edge of winter
-  modelYouWantToUse: {fileID: 4300000, guid: 0f5f08b83d08ca74d9aa1c7d50e1e383, type: 3}
+  name: World 2 Perk
+  description: World 2 Perk
+  modelYouWantToUse: {fileID: 4300000, guid: de7e5cce8d8676244a218979562fa6e0, type: 3}
   defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
   damage: 2
   heatResistence: 2
-  snowBalls: 2
-  HEALTHMAXUPGRADE: 0
+  ammo: 2
+  HEALTHMAXUPGRADE: 200
