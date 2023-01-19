@@ -3,28 +3,32 @@ using UnityEngine.SceneManagement;
 using System.IO;
 public class MainMenuScript : MonoBehaviour
 {
-  //  public  ShopManagerScript shopManagerScriptRef;
+    //  public  ShopManagerScript shopManagerScriptRef;
 
+    //public UnlockableMatrixScript unlockableMatrixRef;
+    public ShopManagerScript shopManagerScriptRef;
+
+    public UnlockableMatrixScript unlockableMatrixRef;
+
+  [SerializeField]  public string unlockedMatrixPath;
 
     public void Awake()
     {
-        // shopManagerScriptRef = GetComponent<ShopManagerScript>();
-        //string json = Application.persistentDataPath + "UnlockMatrix.json";
+        unlockedMatrixPath = $"{Application.persistentDataPath}/UnlockMatrix.json";
 
-        if (File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+        if(File.Exists(unlockedMatrixPath))
         {
-            Debug.Log("unlockmatrixpath exists");
+            Debug.Log("File exists in path:" + unlockedMatrixPath);
+            string json = File.ReadAllText(unlockedMatrixPath);
+            unlockableMatrixRef = JsonUtility.FromJson<UnlockableMatrixScript>(json);
         }
-        else if (!File.Exists(ShopManagerScript.unlockMatrixPath))
-        {
-            Debug.Log("unlockableMatrixPath doe not exist finally this is the awake funtion ");
-        }
-
+        else
+            Debug.Log("File doe not exist in path:" + unlockedMatrixPath);
     }
 
     public void Update()
     {
-       // Debug.Log("saved data:" + JsonUtility.FromJson())
+
     }
 
     public void GameStart()
@@ -50,29 +54,47 @@ public class MainMenuScript : MonoBehaviour
 
     }
 
-
-
-
-    public void DeleteSaveFiles()
-    {
-       // string unlockMatrixPath = $"{Application.persistentDataPath}/UnlockMatrix.json";
-        // string json = Application.persistentDataPath + "UnlockMatrix.json";
-
-        PlayerPrefs.DeleteAll();
-
-        //delete binary files
-
     
-        if (File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+
+   
+
+    public void DelSaveJson()
+    {
+        string json = JsonUtility.ToJson(unlockableMatrixRef);
+
+        if (File.Exists(unlockedMatrixPath))
         {
-            Debug.Log("unlockmatrixpath exists");
-            //SaveSystem.WipeSavedData();
+            File.Delete(unlockedMatrixPath);
+            unlockableMatrixRef.hasAmmoPerk1 = false;
+            unlockableMatrixRef.hasDamagePerk1 = false;
+            unlockableMatrixRef.hasHealthPerk1 = false;
+            unlockableMatrixRef.hasHeatResistencePerk1 = false;
+
+
+            Debug.Log("perks: " + unlockableMatrixRef.hasAmmoPerk1);
+            Debug.Log("perks: " + unlockableMatrixRef.hasDamagePerk1);
+            Debug.Log("perks: " + unlockableMatrixRef.hasHealthPerk1);
+            Debug.Log("perks: " + unlockableMatrixRef.hasHeatResistencePerk1);
 
         }
-        else if(!File.Exists(Application.persistentDataPath + "UnlockMatric.json"))
+        else
+            Debug.Log("File:" + unlockedMatrixPath + " does not exist in " + unlockedMatrixPath);
+
+
+        if(PlayerPrefs.HasKey("LevelsUnlocked"))
         {
-            Debug.Log("unlockableMatrixPath does not exist  this is the delete function you made");
+            Debug.Log("Had playerprefs");
+            Debug.Log("playerprefs exists! prepairing to delete");
+            PlayerPrefs.DeleteAll();
+
+            Debug.Log("Playerprefs are now deleted");
         }
+        else if(!PlayerPrefs.HasKey("LevelsUnlocked"))
+        {
+            Debug.Log("Playerprefs were never created");
+        }
+
     }
+
 
 }

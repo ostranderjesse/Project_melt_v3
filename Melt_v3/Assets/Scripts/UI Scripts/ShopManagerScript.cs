@@ -25,13 +25,13 @@ public class ShopManagerScript : MonoBehaviour
     private ISelectionResponse _selectionResponse;
     public GameObject uiItemDisplay;
 
-    public GameObject perkGameObject1;
-    public GameObject perkGameObject2;
-    public GameObject perkGameObject3;
+    public  GameObject perkGameObject1;
+    public   GameObject perkGameObject2;
+    public   GameObject perkGameObject3;
 
     public UnlockableMatrixScript unlockableMatrixRef;
 
-   [SerializeField] public static string unlockMatrixPath;
+   [SerializeField] public string unlockMatrixPath; // public static
 
 
     #region nots no how to make it work
@@ -60,7 +60,7 @@ public class ShopManagerScript : MonoBehaviour
             unlockableMatrixRef = JsonUtility.FromJson<UnlockableMatrixScript>(json);
 
             RenderShop();
-            //LoadJson();
+            
 
         }
         else if(!File.Exists(unlockMatrixPath))
@@ -101,10 +101,7 @@ public class ShopManagerScript : MonoBehaviour
         {
             RenderShop();
         }
-        //else if(!File.Exists(unlockMatrixPath))
-        //{
-        //    RenderShop();
-        //}
+
 
 
         //deselection/selection respon - hover
@@ -154,7 +151,6 @@ public class ShopManagerScript : MonoBehaviour
 
                         BuyHealthPerk1();
 
-                        //Destroy(selection.gameObject);
 
                     }
 
@@ -202,8 +198,6 @@ public class ShopManagerScript : MonoBehaviour
 
         }
     }
-
-
 
     //methods
 
@@ -304,8 +298,6 @@ public class ShopManagerScript : MonoBehaviour
         File.ReadAllText(unlockMatrixPath);
         
     }
-
-
 
 
 }
