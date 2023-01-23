@@ -1,14 +1,13 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class StartLevel3Shop : MonoBehaviour
+public class StartLevel4Boss1 : MonoBehaviour
 {
-
-    public bool isInsideLevel3 = false;
+    public bool isInsideLevel4 = false;
 
     public void Start()
     {
-        isInsideLevel3 = false;
+        isInsideLevel4 = false;
     }
 
 
@@ -16,7 +15,7 @@ public class StartLevel3Shop : MonoBehaviour
     {
         if (other.tag == "OWPlayer")
         {
-            isInsideLevel3 = true;
+            isInsideLevel4 = true;
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -25,13 +24,13 @@ public class StartLevel3Shop : MonoBehaviour
             //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
             //}
 
-            if (Input.GetKeyDown("space"))
-            {
+            //if (Input.GetKeyDown("space"))
+            //{
 
-                SceneManager.LoadScene("Store Area");// name of overworld scene here
+            //    SceneManager.LoadScene("BossBattle1");// name of overworld scene here
 
-                Debug.Log("Level 3 entered");
-            }
+            //    Debug.Log("Level 3 entered");
+            //}
         }
     }
 
@@ -39,17 +38,17 @@ public class StartLevel3Shop : MonoBehaviour
     {
         if (other.tag == "OWPlayer")
         {
-            isInsideLevel3 = false;
+            isInsideLevel4 = false;
         }
     }
 
     public void Update()
     {
-        if (isInsideLevel3 == true)
+        if (isInsideLevel4 == true)
         {
             if (Input.GetKeyDown("space"))
             {
-                SceneManager.LoadScene("Store Area");// name of overworld scene here
+                SceneManager.LoadScene("BossBattle1");// name of overworld scene here
             }
 
             //if(Input.GetKeyDown(KeyCode.K))
@@ -61,9 +60,11 @@ public class StartLevel3Shop : MonoBehaviour
 
 
         }
-        else if (!isInsideLevel3)
+        else if (!isInsideLevel4)
         {
-            Debug.Log("is inside level 3 = false");
+            Debug.Log("is inside level 4 = false");
         }
     }
+
 }
+
