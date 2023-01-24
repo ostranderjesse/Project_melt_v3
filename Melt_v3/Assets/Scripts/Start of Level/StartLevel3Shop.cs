@@ -19,11 +19,13 @@ public class StartLevel3Shop : MonoBehaviour
             isInsideLevel3 = true;
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
+            #region key input K
             //if(Input.GetKeyDown(KeyCode.K))
             //{
             //    Debug.Log(other.tag + "k was pressed");
             //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
             //}
+            #endregion
 
             if (Input.GetKeyDown("space"))
             {
@@ -51,13 +53,13 @@ public class StartLevel3Shop : MonoBehaviour
             {
                 SceneManager.LoadScene("Store Area");// name of overworld scene here
             }
-
+            #region Key input K
             //if(Input.GetKeyDown(KeyCode.K))
             //{
             //    Debug.Log(other.tag + "k was pressed");
             //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
             //}
-
+            #endregion
 
 
         }

@@ -18,6 +18,7 @@ public class StartLevel4Boss1 : MonoBehaviour
             isInsideLevel4 = true;
             Debug.Log(other.tag + "is the player and is inside the block do something");
 
+            #region GetKeyDown(KeyCode.K) code
             //if(Input.GetKeyDown(KeyCode.K))
             //{
             //    Debug.Log(other.tag + "k was pressed");
@@ -31,6 +32,7 @@ public class StartLevel4Boss1 : MonoBehaviour
 
             //    Debug.Log("Level 3 entered");
             //}
+            #endregion
         }
     }
 
@@ -50,13 +52,13 @@ public class StartLevel4Boss1 : MonoBehaviour
             {
                 SceneManager.LoadScene("BossBattle1");// name of overworld scene here
             }
-
+            #region GetKeyDown(KeyCode.K) code
             //if(Input.GetKeyDown(KeyCode.K))
             //{
             //    Debug.Log(other.tag + "k was pressed");
             //    SceneManager.LoadScene("test_demoV1");// name of overworld scene here
             //}
-
+            #endregion
 
 
         }

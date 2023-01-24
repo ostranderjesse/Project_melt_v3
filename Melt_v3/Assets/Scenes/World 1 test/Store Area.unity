@@ -197,7 +197,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7789474, y: 1}
+    m_SensorSize: {x: 1.7770115, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2049,6 +2049,7 @@ MonoBehaviour:
     hasAmmoPerk1: 0
     hasDamagePerk1: 0
     hasHeatResistencePerk1: 0
+  unlockMatrixPath: 
 --- !u!114 &1218765485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3568,6 +3569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Whip btn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404098558002745648, guid: e868b021ade8e734291ef9e7a17f4f99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e868b021ade8e734291ef9e7a17f4f99, type: 3}
