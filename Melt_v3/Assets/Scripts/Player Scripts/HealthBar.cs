@@ -82,20 +82,30 @@ public class HealthBar : MonoBehaviour
         //}
         #endregion
 
-        //health going from 100 - 0
-        if (fillValue <= 75 && fillValue >= 50)
+        if(fillValue >75 )
+        {
+            snowmangeimageFull.enabled = true; // 100% image
+            snowManImageMelted.enabled = false; // 75% image
+            snowmanImageMoreMelted.enabled = false; // 50% image
+            snowManImageVeryMelted.enabled = false; // 25% image
+        }
+
+        if(fillValue <= 74 && fillValue >= 50 )
         {
             snowmangeimageFull.enabled = false; // 100% image
             snowManImageMelted.enabled = true; // 75% image
+            snowmanImageMoreMelted.enabled = false;
+            snowManImageVeryMelted.enabled = false;
         }
-        if (fillValue <= 49 && fillValue >= 26)
+        else if (fillValue >= 26 && fillValue <= 49 )
         {
             snowmangeimageFull.enabled = false;
             snowManImageMelted.enabled = false;
             snowmanImageMoreMelted.enabled = true; // 50% image
-        }
+            snowManImageVeryMelted.enabled = false;
 
-        if (fillValue <= 25 && fillValue >= 1)
+        }
+        else if (fillValue <= 25 && fillValue >= 1)
         {
             snowmangeimageFull.enabled = false;
             snowManImageMelted.enabled = false;
@@ -103,11 +113,41 @@ public class HealthBar : MonoBehaviour
             snowManImageVeryMelted.enabled = true; // 25% image
         }
 
-        if(fillValue <= 0 )
+        if (fillValue <= 0)
         {
             Debug.Log("player is now dead");
             //kill player here
         }
+
+        #region health code v2
+
+        ////health going from 100 - 0
+        //if (fillValue <= 75 && fillValue >= 50)
+        //{
+        //    snowmangeimageFull.enabled = false; // 100% image
+        //    snowManImageMelted.enabled = true; // 75% image
+        //}
+        //if (fillValue <= 49 && fillValue >= 26)
+        //{
+        //    snowmangeimageFull.enabled = false;
+        //    snowManImageMelted.enabled = false;
+        //    snowmanImageMoreMelted.enabled = true; // 50% image
+        //}
+
+        //if (fillValue <= 25 && fillValue >= 1)
+        //{
+        //    snowmangeimageFull.enabled = false;
+        //    snowManImageMelted.enabled = false;
+        //    snowmanImageMoreMelted.enabled = false;
+        //    snowManImageVeryMelted.enabled = true; // 25% image
+        //}
+
+        //if(fillValue <= 0 )
+        //{
+        //    Debug.Log("player is now dead");
+        //    //kill player here
+        //}
+        #endregion
     }
 
     public void SetMaxHealth(float health)

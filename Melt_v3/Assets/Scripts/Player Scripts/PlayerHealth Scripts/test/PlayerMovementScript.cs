@@ -94,7 +94,7 @@ public class PlayerMovementScript : MonoBehaviour
 
                 _directionY = jumpSpeed;
                 extraJumps--;
-                Debug.Log("extra jump value: " + extraJumps + "else statment");
+                Debug.Log("extra jump value: " + extraJumps + " else statment");
             }
         }
 

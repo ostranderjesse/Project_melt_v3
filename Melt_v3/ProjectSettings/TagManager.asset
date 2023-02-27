@@ -9,6 +9,9 @@ TagManager:
   - OWPlayer
   - Selectable
   - UI
+  - Boss
+  - Spawn
+  - Enemy
   layers:
   - Default
   - TransparentFX
