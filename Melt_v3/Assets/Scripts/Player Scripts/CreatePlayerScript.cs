@@ -7,8 +7,8 @@ public class CreatePlayerScript : MonoBehaviour
     public Transform startPosition;
     public GameObject player;
 
-    //particle effects
-    public GameObject spawnParticle;
+    ////particle effects
+    //public GameObject spawnParticle;
 
     public PlayerMovementScript playerMovementRef;
 
@@ -32,6 +32,7 @@ public class CreatePlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #region overworld code
         /* goes in create overworld character*/
         //if (PlayerPrefs.HasKey("newPlayerPositionX")) // if playerprefs has a newPlayerPostionX then it has a newPlayerPostionY and Z
         //{
@@ -56,13 +57,11 @@ public class CreatePlayerScript : MonoBehaviour
         //    player.transform.position = startPosition.transform.position;
         //    playerMovementRef.controller.enabled = true;
         //}
+        #endregion
 
-            playerMovementRef.controller.enabled = false;
+        playerMovementRef.controller.enabled = false;
             player.transform.position = startPosition.transform.position;
             playerMovementRef.controller.enabled = true;
-
-
-
 
     }
 }

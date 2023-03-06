@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
 {
@@ -150,7 +149,6 @@ public class PlayerMovementScript : MonoBehaviour
 
             playerMovementRef.enabled = false;
 
-
             //move player to warp position
             player.transform.position = warpExit[0].transform.position;
 
@@ -186,12 +184,10 @@ public class PlayerMovementScript : MonoBehaviour
         }
     }
 
-
     public void Flip()
     {
         facingRight = !facingRight;
 
         transform.Rotate(0f, 180f, 0f);
     }
-
 }

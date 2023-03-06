@@ -8,32 +8,41 @@ public class KillPlayer : MonoBehaviour
     private LevelManager levelManagerRef;
 
     [SerializeField]
-    private PlayerHealth PlayerHealthRef;
+    private PlayerHealth playerHealthRef;
+
+    [SerializeField]
+    private PlayerMovementScript playerMovementRef;
 
     void Start()
     {
         levelManagerRef = FindObjectOfType<LevelManager>();
 
-        PlayerHealthRef = FindObjectOfType<PlayerHealth>();
+        playerHealthRef = FindObjectOfType<PlayerHealth>();
+
+        playerMovementRef = FindObjectOfType<PlayerMovementScript>();
 
         if (levelManagerRef == null)
         {
             levelManagerRef = FindObjectOfType<LevelManager>();
         }
 
-        if (PlayerHealthRef == null)
+        if (playerHealthRef == null)
         {
-            PlayerHealthRef = FindObjectOfType<PlayerHealth>();
+            playerHealthRef = FindObjectOfType<PlayerHealth>();
+        }
+
+        if (playerMovementRef == null)
+        {
+            playerMovementRef = FindObjectOfType<PlayerMovementScript>();
         }
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "player(Clone)")
+        if(other.name == "Snowman Player(Clone)" )                         //"player(Clone)")
         {
-
-            PlayerHealthRef.TakeDanage(10.0f);
+            playerHealthRef.TakeDanage(10.0f);
 
             levelManagerRef.RespawnPlayer();
         }
