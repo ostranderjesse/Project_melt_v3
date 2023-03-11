@@ -12,10 +12,6 @@ public class LevelManager : MonoBehaviour
 
     public float respawnDelay;
 
-    //public Renderer playerRend;
-
-    //public Renderer playerskin;
-
     public GameObject THEPLAYER;
 
     private float gravityStore;
@@ -28,7 +24,7 @@ public class LevelManager : MonoBehaviour
         playerRef = FindObjectOfType<PlayerMovementScript>();
         THEPLAYER = GameObject.FindWithTag("Player");
        
-        //playerRend = playerRef.GetComponentInChildren<Renderer>();
+   
 
         if (playerRef == null)
         {

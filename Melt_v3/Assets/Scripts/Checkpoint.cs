@@ -16,7 +16,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "player(Clone)")
+        if (other.name == "Snowman Player(Clone)") //player(Clone)"
         {
             levelManagerRef.currentCheckPoint =  gameObject;
 

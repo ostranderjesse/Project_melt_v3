@@ -70,6 +70,8 @@ public class PlayerMovementScript : MonoBehaviour
 
         moveDirection = new Vector3(horizInput,0,0); // store input in moveDirection
 
+       
+
         if(controller.isGrounded == true)
         {
            // Debug.Log("character controller is grounded");
@@ -136,6 +138,9 @@ public class PlayerMovementScript : MonoBehaviour
         //move player left and right
         controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
     }
+
+
+   
 
     public void OnTriggerEnter(Collider other)
     {
