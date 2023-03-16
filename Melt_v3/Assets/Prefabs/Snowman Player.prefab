@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6783149119409865157}
-  player: {fileID: 8475186585589693200, guid: 6017fdf3244143c4c8e8be96637dce39, type: 3}
+  player: {fileID: 310495374062223954}
   moveSpeed: 10
   _gravity: 9.81
   jumpSpeed: 8

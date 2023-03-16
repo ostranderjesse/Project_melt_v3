@@ -10,6 +10,10 @@ public class EnemyPatrolScript : MonoBehaviour
     public float speed;
 
     public bool facingRight = true;
+    public Transform targetedPlayer;
+    public int chaseRange;
+
+    [SerializeField] private Rigidbody enemyRigidBody;
 
     #region unused variables
     // private string currentState = "IdleState";
@@ -20,19 +24,28 @@ public class EnemyPatrolScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         targetPoint = 0;
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        float distance = Vector3.Distance(transform.position, targetedPlayer.transform.position);
+
         if(transform.position == patrolPoints[targetPoint].position)
         {
             IncreaseTargetInt();
         }
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
 
+        // transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime); //OG Code without trying to chase down player the if distance code!
+
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].transform.position, speed * Time.deltaTime); // testing
+
+        //turn player
         if (targetPoint == 0 && facingRight)
         {
             //face left
@@ -43,6 +56,24 @@ public class EnemyPatrolScript : MonoBehaviour
             //face right
             FlipEnemey();
         }
+        
+        if(distance <= chaseRange)
+        {
+           
+            //chase player
+            Debug.Log("chase player now!");
+
+        }
+        else if (distance > chaseRange)
+        {
+            //go back to patrolling
+            Debug.Log("Go back to patrol point: " + targetPoint);
+           
+        }
+
+
+
+
         #region code to work on for pursuing character
         //if player is within the desired area pursue the player
         // if player is outside the desired area pursue no more and go back to patroling

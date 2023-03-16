@@ -15,11 +15,16 @@ public class CollectStar : MonoBehaviour
         //change score
        // collectCoinsRef = GetComponent<CollectCoins>();
 
-        CollectCoins.theScore += 50;
+        if(other.name == "Snowman Player(Clone)")
+        {
+            CollectCoins.theScore += 50;
 
-        PlayerPrefs.SetInt("numberofCoins", CollectCoins.theScore);
+            PlayerPrefs.SetInt("numberofCoins", CollectCoins.theScore);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+
+        
 
     }
 }

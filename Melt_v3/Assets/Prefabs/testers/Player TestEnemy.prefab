@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5409016389591600865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2833775219296400304}
+  - component: {fileID: 672234496212692731}
+  - component: {fileID: 5922042274916715968}
+  - component: {fileID: 8609652629761420587}
+  m_Layer: 0
+  m_Name: Player TestEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2833775219296400304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409016389591600865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 73874327976607819}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &672234496212692731
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409016389591600865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 3
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.4
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &5922042274916715968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409016389591600865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d600ec973f123439970dce2ae95784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 672234496212692731}
+  player: {fileID: 5409016389591600865}
+  moveSpeed: 10
+  _gravity: 9.81
+  jumpSpeed: 8
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveVelocity: 0
+  extraJumps: 0
+  extraJumpValue: 3
+  warpEnterence: []
+  warpExit: []
+  facingRight: 1
+  playerMovementRef: {fileID: 0}
+--- !u!114 &8609652629761420587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409016389591600865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f25c59f29f4d1241b6bd87f354f2934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAXHEALTH: 100
+  currentHealth: 0
+  healthBarRef: {fileID: 0}
+--- !u!1001 &852639871026799842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2833775219296400304}
+    m_Modifications:
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879431579816907659, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_Name
+      value: SnowmanCharacterTester 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130551898651516966, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177231109357624308, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199739838406231447, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c87dbd615c3ac6e4cb02d9cbfccd971c, type: 3}
+--- !u!4 &73874327976607819 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 780067485212877993, guid: c87dbd615c3ac6e4cb02d9cbfccd971c,
+    type: 3}
+  m_PrefabInstance: {fileID: 852639871026799842}
+  m_PrefabAsset: {fileID: 0}
