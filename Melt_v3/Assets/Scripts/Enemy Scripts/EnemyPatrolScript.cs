@@ -13,7 +13,7 @@ public class EnemyPatrolScript : MonoBehaviour
     public Transform targetedPlayer;
     public int chaseRange;
 
-    [SerializeField] private Rigidbody enemyRigidBody;
+   // [SerializeField] private Rigidbody enemyRigidBody;
 
     #region unused variables
     // private string currentState = "IdleState";
@@ -27,7 +27,10 @@ public class EnemyPatrolScript : MonoBehaviour
 
         targetPoint = 0;
         targetedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyRigidBody = GetComponent<Rigidbody>();
+      
+        
+
+
     }
 
     // Update is called once per frame
@@ -43,7 +46,13 @@ public class EnemyPatrolScript : MonoBehaviour
 
         // transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime); //OG Code without trying to chase down player the if distance code!
 
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].transform.position, speed * Time.deltaTime); // testing
+        //transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].transform.position, speed * Time.deltaTime); // testing
+        
+
+        
+        
+
+
 
         //turn player
         if (targetPoint == 0 && facingRight)
@@ -62,13 +71,18 @@ public class EnemyPatrolScript : MonoBehaviour
            
             //chase player
             Debug.Log("chase player now!");
+            // transform.Translate(transform.right * Time.deltaTime);
+            //MoveAi();
+            targetPoint = 0;
 
         }
         else if (distance > chaseRange)
         {
             //go back to patrolling
             Debug.Log("Go back to patrol point: " + targetPoint);
-           
+
+            transform.Translate(transform.position.x, patrolPoints[targetPoint].position.x, speed * Time.deltaTime);
+
         }
 
 
@@ -116,4 +130,20 @@ public class EnemyPatrolScript : MonoBehaviour
 
         transform.Rotate(0f,180f,0f);
     }
+
+    private void MoveAi()
+    {
+        if (targetedPlayer.position.x > transform.position.x)
+        {
+            //move right
+            transform.Translate(transform.right * speed * Time.deltaTime);
+
+        }
+        else
+        {
+            //move left
+            transform.Translate(-transform.right * speed * Time.deltaTime);
+        }
+    }
+        
 }

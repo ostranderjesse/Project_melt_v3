@@ -40,7 +40,7 @@ public class KillPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Snowman Player(Clone)" )                         //"player(Clone)")
+        if(other.name == "Snowman Player(Clone)")                         //"player(Clone)")
         {
             playerHealthRef.TakeDanage(10.0f);
 
