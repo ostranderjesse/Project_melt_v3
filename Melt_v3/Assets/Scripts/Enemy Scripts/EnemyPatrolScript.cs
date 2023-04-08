@@ -114,7 +114,7 @@ public class EnemyPatrolScript : MonoBehaviour
         #endregion
     }
 
-    private void IncreaseTargetInt()
+    public void IncreaseTargetInt()
     {
         targetPoint++;
 
@@ -145,5 +145,16 @@ public class EnemyPatrolScript : MonoBehaviour
             transform.Translate(-transform.right * speed * Time.deltaTime);
         }
     }
-        
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Sphere") 
+        {
+            Debug.Log("colliding");
+        }
+    }
+
+
+
 }

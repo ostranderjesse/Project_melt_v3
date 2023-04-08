@@ -35,17 +35,24 @@ public class KillPlayer : MonoBehaviour
         {
             playerMovementRef = FindObjectOfType<PlayerMovementScript>();
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Snowman Player(Clone)")                         //"player(Clone)")
+        #region if other.name
+        //if(other.name == "Snowman Player(Clone)")                         //"player(Clone)")
+        //{
+        //    playerHealthRef.TakeDanage(10.0f);
+
+        //    levelManagerRef.RespawnPlayer();
+        //}
+        #endregion
+
+        if (other.tag == "Player")
         {
             playerHealthRef.TakeDanage(10.0f);
 
             levelManagerRef.RespawnPlayer();
         }
     }
-
 }

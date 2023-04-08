@@ -1,133 +1,105 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class EnemyTestPatrol : MonoBehaviour
 {
+    #region unused variables
+    //public int chaseRange =5;
+    //public bool isChasing = false;
+    #endregion
     [SerializeField] Transform target;
     public float speed;
     public bool faceingRight = true;
-    public int chaseRange =5;
-
     public int targetPoints;
     public Transform[] patrollingPoints;
-    public GameObject theEnemy;
-
 
     // Start is called before the first frame update
     void Start()
     {
         targetPoints = 0;
-
-        //theEnemy = this.gameObject;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-
-      // transform.position = new Vector3()
-        
+        faceingRight = true;
+        #region unused cached variables
+        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        // isChasing = false;
+        #endregion
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.position);
+        // float distance = Vector3.Distance(transform.position, target.position);
 
-        //if(transform.position.y < 5.7f)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 5.7f, transform.position.z);
-        //}
+        if (transform.position.y < 5.53f)
+        {
+            transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
 
+        }
+        else if (transform.position.y > 5.53f)
+        {
+            transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
+        }
 
-        if(transform.position.x == patrollingPoints[targetPoints].position.x)
+        if (transform.position == patrollingPoints[targetPoints].position) //.x
         {
             IncreaseTargetInt();
         }
 
-        if (targetPoints == 0 && faceingRight)
+        #region old flip enemy code
+        ////if (targetPoints == 0 && faceingRight)
+        ////{
+        ////    //face left
+        ////    FlipEnemey();
+        ////}
+        ////else if (targetPoints != 0 && !faceingRight)
+        ////{
+        ////    //face right
+        ////    FlipEnemey();
+        ////}
+        ///
+        #endregion
+
+        if (targetPoints == 0 && !faceingRight)
         {
-            //face left
             FlipEnemey();
         }
-        else if (targetPoints != 0 && !faceingRight)
+        else if (targetPoints !=0 && faceingRight)
         {
-            //face right
             FlipEnemey();
         }
 
-        if (transform.position.y > 5.616f)
-        {
-            transform.position = new Vector3(transform.position.x, 5.7f, transform.position.z);
-        }
 
-        transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
-        //MoveAiToPatrollPoint();
-
-
-        if (distance <= chaseRange)
-        {
-            //chase player
-            Debug.Log("chase player now!");
-            MoveTheAiToPlayer();
-
-        }
-        else if (distance >= chaseRange)
-        {
-            //chase player
-            Debug.Log("Dont chase the player!");
-           // MoveAiToPatrollPoint();
-
-
-        }
-
-        //if(target.position.x > transform.position.x)
+        //if (transform.position.y < 5.53f)
         //{
-        //    //move right
-        //    transform.Translate(transform.right * speed * Time.deltaTime);
-
-        //}else
+        //    transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
+           
+        //}
+        //else if( transform.position.y >5.53f)
         //{
-        //    //move left
-        //    transform.Translate(-transform.right * speed * Time.deltaTime);
+        //    transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
         //}
 
+        transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
 
-    }
+        #region distance <= chaseRange
+        //if (distance <= chaseRange)
+        //{
+        ////    //chase player
+        //    Debug.Log("chase player now!");
+        //    isChasing = true;
 
-    private void MoveAiToPatrollPoint()
-    {
-        if (transform.position.y > 5.616f)
-        {
-            transform.position = new Vector3(transform.position.x, 5.7f, transform.position.z);
-        }
+        //    transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
 
-        if (patrollingPoints[targetPoints].position.x > transform.position.x)
-        {
-            //move left
-            transform.Translate(transform.right * speed * Time.deltaTime);
-        }
-        else
-        {
-            //move right
-            transform.Translate(-transform.right * speed * Time.deltaTime);
-        }
-    }
+        //}
+        //else if (distance >= chaseRange)
+        //{
+        ////    //chase player
+        //    Debug.Log("Dont chase the player!");
 
-    private void MoveTheAiToPlayer()
-    {
-        if (target.position.x > transform.position.x)
-        {
-            //move right
-            if(transform.position.y > 5.616f)
-            {
-                transform.position = new Vector3(transform.position.x, 5.7f, transform.position.z);
-            }
-            transform.Translate(transform.right * speed * Time.deltaTime);
+        //    isChasing = false;
+        //    transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
 
-        }
-        else
-        {
-            //move left
-            transform.Translate(-transform.right * speed * Time.deltaTime);
-        }
+        //}
+        #endregion
     }
 
     private void FlipEnemey()
@@ -137,11 +109,11 @@ public class EnemyTestPatrol : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    private void IncreaseTargetInt()
+    public void IncreaseTargetInt()
     {
-        Debug.Log("adding 1 to targetpoints" + targetPoints);
+       // Debug.Log("adding 1 to targetpoints" + targetPoints);
         targetPoints++;
-        Debug.Log("targetpoints" + targetPoints);
+       // Debug.Log("targetpoints" + targetPoints);
 
         if (targetPoints >= patrollingPoints.Length)
         {
@@ -149,5 +121,17 @@ public class EnemyTestPatrol : MonoBehaviour
         }
     }
 
-
+    #region unused code
+    //private void FaceEnemyPlayer()
+    //{
+    //    if( isChasing == true)
+    //    {
+    //        Debug.Log("face player until out of chaseRange");
+    //    }
+    //    else if (isChasing == false)
+    //    {
+    //        Debug.Log("Face nearest patrol point and start patrolling again");
+    //    }
+    //}
+    #endregion
 }
