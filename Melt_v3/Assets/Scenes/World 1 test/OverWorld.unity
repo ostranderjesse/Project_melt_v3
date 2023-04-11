@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -168,7 +168,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7767653, y: 1}
+    m_SensorSize: {x: 1.7768595, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4336,7 +4336,6 @@ GameObject:
   - component: {fileID: 257770913}
   - component: {fileID: 257770912}
   - component: {fileID: 257770911}
-  - component: {fileID: 257770910}
   m_Layer: 0
   m_Name: Level7
   m_TagString: Untagged
@@ -4360,19 +4359,6 @@ Transform:
   m_Father: {fileID: 152138773}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &257770910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257770908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d71a035fd0a4d4da81cd67334588df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInsideLevel3: 0
 --- !u!65 &257770911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18102,7 +18088,6 @@ GameObject:
   - component: {fileID: 1057222871}
   - component: {fileID: 1057222870}
   - component: {fileID: 1057222869}
-  - component: {fileID: 1057222868}
   m_Layer: 0
   m_Name: Level8
   m_TagString: Untagged
@@ -18126,19 +18111,6 @@ Transform:
   m_Father: {fileID: 152138773}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1057222868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057222866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f6540c8ad68ad4882d9e6955dc5f31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInsideLevel4: 0
 --- !u!65 &1057222869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22349,7 +22321,6 @@ GameObject:
   - component: {fileID: 1281338316}
   - component: {fileID: 1281338315}
   - component: {fileID: 1281338314}
-  - component: {fileID: 1281338313}
   m_Layer: 0
   m_Name: Level5
   m_TagString: Untagged
@@ -22373,19 +22344,6 @@ Transform:
   m_Father: {fileID: 152138773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1281338313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281338311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b362879fecced854f810ae0a478c65d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInside: 0
 --- !u!65 &1281338314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32308,7 +32266,6 @@ GameObject:
   - component: {fileID: 1834869010}
   - component: {fileID: 1834869009}
   - component: {fileID: 1834869008}
-  - component: {fileID: 1834869007}
   m_Layer: 0
   m_Name: Level6
   m_TagString: Untagged
@@ -32332,19 +32289,6 @@ Transform:
   m_Father: {fileID: 152138773}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1834869007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834869005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181d25167477f674a862d422891bd22a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInsideLevel2: 0
 --- !u!65 &1834869008
 BoxCollider:
   m_ObjectHideFlags: 0
