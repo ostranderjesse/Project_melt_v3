@@ -68,15 +68,7 @@ public class EnemyTestPatrol : MonoBehaviour
         }
 
 
-        //if (transform.position.y < 5.53f)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
-           
-        //}
-        //else if( transform.position.y >5.53f)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
-        //}
+      
 
         transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
 

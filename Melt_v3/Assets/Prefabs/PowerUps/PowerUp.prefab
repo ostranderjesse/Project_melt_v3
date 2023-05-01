@@ -122,8 +122,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884190773362495549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.210022, y: -1.889, z: 3.5299997}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5884190773692107961}
   m_Father: {fileID: 0}
@@ -236,10 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9da7b568cd10b7468c1455e5fd6513d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupGameObject: {fileID: 0}
-  powerUpEffectScriptableObjectRef: {fileID: 11400000, guid: 50ed32135e2e4c4438b7f9c76601207b,
-    type: 2}
-  modelYouWantToChange: {fileID: 5884190773692107958}
+  powerUpEffectScriptableObjectRef: {fileID: 0}
   powerUpTextName: {fileID: 5884190773237844614}
+  modelYouWantToChange: {fileID: 5884190773692107958}
   modelMaterialYouWantToChange: {fileID: 2100000, guid: a87fa193af8cd9a4fa6f751cd62a90f8,
     type: 2}
+  m_collider: {fileID: 0}
+  m_ScaleX: 0
+  m_ScaleY: 0
+  m_ScaleZ: 0

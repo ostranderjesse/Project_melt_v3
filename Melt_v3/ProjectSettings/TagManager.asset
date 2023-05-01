@@ -12,6 +12,9 @@ TagManager:
   - Boss
   - Spawn
   - Enemy
+  - Boss1
+  - Ground
+  - enemyProjectile
   layers:
   - Default
   - TransparentFX
