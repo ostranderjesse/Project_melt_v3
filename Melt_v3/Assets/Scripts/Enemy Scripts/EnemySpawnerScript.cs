@@ -13,17 +13,48 @@ public class EnemySpawnerScript : MonoBehaviour
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
     public Transform spawnLocation;
     public int waveDuration;
- 
-     public float waveTimer;
+    public float spawnTimer;
+
+    public float waveTimer;
 
     public float spawnInterval;
 
-    public float spawnTimer;
+    [SerializeField]
+    private static EnemySpawnerScript _instance;
+
+    public static EnemySpawnerScript Instance
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                Debug.LogError(message: "EnemySpawnerScript is null");
+            }
+            else
+            { Destroy(_instance);
+            }
+
+
+            return _instance;
+        }
+
+    }
+
+    private void Awake()
+    {
+        _instance = this;
+
+       
+    }
+
+
 
     // Start is called before the first frame update
 
     private void Start()
     {
+        
+
         GenerateWave();
     }
 
@@ -32,7 +63,7 @@ public class EnemySpawnerScript : MonoBehaviour
         if(spawnTimer <=0)
         {
             //spawn an enemy
-            if(enemiesToSpawn.Count >0)
+            if(enemiesToSpawn.Count > 0)
             {
                 Instantiate(enemiesToSpawn[0], spawnLocation.position, Quaternion.identity); //spawn first enemy in list
                 enemiesToSpawn.RemoveAt(0); // and remove it

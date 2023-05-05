@@ -149,7 +149,10 @@ MonoBehaviour:
     cost: 3
   currentWave: 0
   waveValue: 0
-  enemiesToSpawn: []
+  enemiesToSpawn:
+  - {fileID: 5173803519754817629, guid: c4d2a75a400037e4c8ac05e362329bdd, type: 3}
+  - {fileID: 4715808618183782778, guid: b2039b0f6c9f5d64aa29d41652ddab6b, type: 3}
+  - {fileID: 2195622361318397224, guid: b90689e6fa6f0d44f96b028fc00472b2, type: 3}
   spawnLocation: {fileID: 5558061308864789866}
   waveDuration: 10
   waveTimer: 5

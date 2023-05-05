@@ -95983,7 +95983,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7768595, y: 1}
+    m_SensorSize: {x: 1.7790055, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -107312,8 +107312,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2741966, y: 2.5951138, z: 3.8310356}
-  m_Center: {x: 0.019313812, y: 0.7975569, z: 0.6276016}
+  m_Size: {x: 2.310996, y: 2.479601, z: 3.8310356}
+  m_Center: {x: -0.07842779, y: 0.73980045, z: 0.6276016}
 --- !u!23 &1932712343
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107393,10 +107393,11 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 397968272}
   bulletPrefab: {fileID: 2609448510362266769, guid: 535310a0c5a861e4c8436f8c7c47e2b9,
     type: 3}
+  bulletsInExistence: []
   launchVelocity: 10
   attackRange: 10
   attackIntervals: 5
-  timer: 5
+  canShoot: 0
 --- !u!54 &1932712347
 Rigidbody:
   m_ObjectHideFlags: 0
