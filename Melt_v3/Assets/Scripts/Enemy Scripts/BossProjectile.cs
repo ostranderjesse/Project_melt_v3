@@ -4,45 +4,65 @@ using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
 {
-    public float life = 5f;
+    public float lifeTime = 3f;
+
+    public float timer;
+  
     public GameObject spawnFactory;
 
     public Rigidbody rb;
 
+    public EnemyAttackScript enemyAttackScriptRef;
+
     public Transform spawnPoint;
 
-  //  private EnemyAttackScript enemyAttackScriptRef;
+    public float speed;
+
+   //private EnemyAttackScript enemyAttackScriptRef;
 
 
     public void Awake()
     {
-       // Destroy(gameObject, life);
+   
     }
     // Start is called before the first frame update
     void Start()
     {
-        //enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
-
-
-        //if (enemyAttackScriptRef == null)
-        //{
-        //    enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
-        //}
-
-        ////spawnPoint.position = gameObject.transform.position;
-        ///
+        
 
         rb = GetComponent<Rigidbody>();
 
-        if (spawnPoint == null)
-            return;
+        enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
+
+        if(enemyAttackScriptRef.transform.localScale.x < 0 )
+        {
+            speed = -speed;
+            Debug.Log("speed =" + speed);
+        }
 
     }
 
     private void Update()
     {
+        // rb.velocity = new Vector3(speed, Rigidbody.velocity.y);
+       // rb.AddForce(Vector3.forward * speed * Time.deltaTime);
+
+        rb.velocity = new Vector3(-speed , rb.velocity.y);
+
+ 
+        Destroy(gameObject, lifeTime); //,lifetime
+
+        if(gameObject == null)
+        {
+            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+            enemyAttackScriptRef.canShoot = true;
+            Debug.Log("Removed gameobject from existence. gameobject == null");
+        }
         
+       
     }
+
+
 
 
     //if hits player destroy
@@ -57,6 +77,7 @@ public class BossProjectile : MonoBehaviour
             Instantiate(spawnFactory, spawnPoint.position, spawnPoint.rotation); //bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             Destroy(gameObject);
             Debug.Log("Factroy is spawned");
+            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
         }
 
         if(other.tag == "Player")
@@ -66,6 +87,7 @@ public class BossProjectile : MonoBehaviour
             Debug.Log("Hit player");
 
             Destroy(gameObject);
+            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
         }
     }
 

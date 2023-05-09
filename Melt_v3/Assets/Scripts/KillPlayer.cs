@@ -37,16 +37,26 @@ public class KillPlayer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (levelManagerRef == null)
+        {
+            levelManagerRef = FindObjectOfType<LevelManager>();
+        }
+
+        if (playerHealthRef == null)
+        {
+            playerHealthRef = FindObjectOfType<PlayerHealth>();
+        }
+
+        if (playerMovementRef == null)
+        {
+            playerMovementRef = FindObjectOfType<PlayerMovementScript>();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        #region if other.name
-        //if(other.name == "Snowman Player(Clone)")                         //"player(Clone)")
-        //{
-        //    playerHealthRef.TakeDanage(10.0f);
-
-        //    levelManagerRef.RespawnPlayer();
-        //}
-        #endregion
 
         if (other.tag == "Player")
         {
