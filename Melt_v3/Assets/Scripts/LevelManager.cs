@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -11,20 +12,36 @@ public class LevelManager : MonoBehaviour
     public GameObject respawnPartilcle;
 
     public float respawnDelay;
+    public float attackDelay;
 
     public GameObject THEPLAYER;
 
     private float gravityStore;
+    [Space]
+    [Space]
+    [SerializeField] private EnemyAttackScript enemyAttackScriptRef;
+    public List<GameObject> bulletsInExistence;
+    public List<GameObject> factoryInExistence;
+
+    //reference the bossProjectile
+    public BossProjectile bossProjectileRef;
+
 
     // Start is called before the first frame update
     void Start()
     {
         
 
+
         playerRef = FindObjectOfType<PlayerMovementScript>();
         THEPLAYER = GameObject.FindWithTag("Player");
-       
-   
+
+
+        enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
+
+        bulletsInExistence = new List<GameObject>();
+        factoryInExistence = new List<GameObject>();
+
 
         if (playerRef == null)
         {
@@ -44,12 +61,72 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        
+    }
+
+    public void RemoveExtraFactory()
+    {
+        StartCoroutine("RemoveExtraFactoryCo");
+    }
+
+    public void RemoveObjectFromList()
+    {
+        StartCoroutine("RemoveObjectFromListCo");
+    }
+
+
 
     public void RespawnPlayer()
     {
-        StartCoroutine("RespawnPlayerCo");
+        StartCoroutine("RespawnPlayerCo");      
+    }
 
-        
+
+    public IEnumerator RemoveExtraFactoryCo()
+    {
+        Debug.Log("factory check coroutine");
+
+        if(factoryInExistence.Count >= 1)
+        {
+            if (factoryInExistence.Count >1)
+            {
+                factoryInExistence.RemoveAt(1); // second element
+            }
+        }
+     
+
+        Debug.Log("Player Respawn");
+
+        yield return new WaitForSeconds(respawnDelay);
+
+        Destroy(bossProjectileRef.spawnFactory);
+        factoryInExistence.RemoveAt(0);
+
+       
+    }
+
+
+
+
+
+
+    public IEnumerator RemoveObjectFromListCo()
+    {
+        Debug.Log("Remove Bullet from list Coroutine started");
+        Debug.Log("Romove from bullet list");
+
+        //create partilcle effects
+       // Instantiate(deathParticle, bossProjectileRef.transform.position, bossProjectileRef.transform.rotation);
+
+       // bulletsInExistence.RemoveAt(0);
+
+        yield return new WaitForSeconds(attackDelay);
+
+        bulletsInExistence.RemoveAt(0);
+
+
     }
     public IEnumerator RespawnPlayerCo()
     {

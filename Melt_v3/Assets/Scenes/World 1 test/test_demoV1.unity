@@ -48518,7 +48518,12 @@ MonoBehaviour:
   respawnPartilcle: {fileID: 8468453476205897103, guid: da514c6bebf69b7499cf1ae5b0e66e17,
     type: 3}
   respawnDelay: 1
+  attackDelay: 3
   THEPLAYER: {fileID: 0}
+  enemyAttackScriptRef: {fileID: 0}
+  bulletsInExistence: []
+  factoryInExistence: []
+  bossProjectileRef: {fileID: 0}
 --- !u!4 &835457409
 Transform:
   m_ObjectHideFlags: 0
@@ -96057,7 +96062,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757732, y: 1}
+    m_SensorSize: {x: 1.7768595, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -107467,12 +107472,12 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 397968272}
   bulletPrefab: {fileID: 2609448510362266769, guid: 535310a0c5a861e4c8436f8c7c47e2b9,
     type: 3}
-  bulletsInExistence: []
   launchVelocity: 10
   attackRange: 10
   attackIntervals: 5
   facingRight: 1
   canShoot: 0
+  levelManagerRef: {fileID: 0}
 --- !u!54 &1932712347
 Rigidbody:
   m_ObjectHideFlags: 0

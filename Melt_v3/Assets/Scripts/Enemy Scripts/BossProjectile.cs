@@ -6,19 +6,36 @@ public class BossProjectile : MonoBehaviour
 {
     public float lifeTime = 3f;
 
-    public float timer;
-  
     public GameObject spawnFactory;
 
     public Rigidbody rb;
 
-    public EnemyAttackScript enemyAttackScriptRef;
+    //public EnemyAttackScript enemyAttackScriptRef;
 
     public Transform spawnPoint;
 
     public float speed;
 
-   //private EnemyAttackScript enemyAttackScriptRef;
+    [SerializeField]
+   private EnemyAttackScript enemyAttackScriptRef;
+
+    [SerializeField]
+    private LevelManager levelManagerScriptRef;
+
+
+
+    //testing variables area
+    //lifeTime
+    [SerializeField] private bool timeToDie = false;
+
+
+
+
+
+
+
+
+
 
 
     public void Awake()
@@ -28,17 +45,23 @@ public class BossProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        levelManagerScriptRef = FindObjectOfType<LevelManager>();
+
+        if (levelManagerScriptRef == null)
+        {
+            levelManagerScriptRef = FindObjectOfType<LevelManager>();
+        }
 
         rb = GetComponent<Rigidbody>();
 
-        enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
 
-        if(enemyAttackScriptRef.transform.localScale.x < 0 )
-        {
+
+       // enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
+       // {
             speed = -speed;
             Debug.Log("speed =" + speed);
-        }
+       // }
 
     }
 
@@ -47,21 +70,25 @@ public class BossProjectile : MonoBehaviour
         // rb.velocity = new Vector3(speed, Rigidbody.velocity.y);
        // rb.AddForce(Vector3.forward * speed * Time.deltaTime);
 
-        rb.velocity = new Vector3(-speed , rb.velocity.y);
+        rb.velocity = new Vector3(speed , rb.velocity.y);
 
- 
-        Destroy(gameObject, lifeTime); //,lifetime
+        //TimeDelay();
 
-        if(gameObject == null)
+        lifeTime -= Time.deltaTime;
+        if(lifeTime <= 0)
         {
-            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
-            enemyAttackScriptRef.canShoot = true;
-            Debug.Log("Removed gameobject from existence. gameobject == null");
+            timeToDie = true;
         }
-        
+
+        if(timeToDie == true)
+        {
+            Destroy(gameObject);
+            levelManagerScriptRef.bulletsInExistence.RemoveAt(0);
+        }
+
+       //if factory spawn exists do nto spawn another
        
     }
-
 
 
 
@@ -72,12 +99,31 @@ public class BossProjectile : MonoBehaviour
 
         if (other.tag == "Ground")
         {
-            spawnPoint.transform.position = this.gameObject.transform.position;
+           
 
-            Instantiate(spawnFactory, spawnPoint.position, spawnPoint.rotation); //bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            Destroy(gameObject);
-            Debug.Log("Factroy is spawned");
-            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+            if (levelManagerScriptRef.factoryInExistence.Count > 1)
+            {
+                //do not create factory
+                //spawn particles for effect
+                Destroy(gameObject);
+                levelManagerScriptRef.RemoveExtraFactory();
+              //  levelManagerScriptRef.bulletsInExistence.RemoveAt()
+                
+            }
+            else if (levelManagerScriptRef.factoryInExistence.Count != 1) //if list = 0
+            {
+                spawnPoint.transform.position = gameObject.transform.position;
+
+                Instantiate(spawnFactory, spawnPoint.position, spawnPoint.rotation); //bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                Destroy(gameObject);
+                //enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+                levelManagerScriptRef.bulletsInExistence.Clear();
+                Debug.Log("Factroy is spawned");
+                //enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+
+                //add factory object to list
+                levelManagerScriptRef.factoryInExistence.Add(spawnFactory);
+            }
         }
 
         if(other.tag == "Player")
@@ -87,7 +133,9 @@ public class BossProjectile : MonoBehaviour
             Debug.Log("Hit player");
 
             Destroy(gameObject);
-            enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+            //enemyAttackScriptRef.bulletsInExistence.RemoveAt(0);
+            levelManagerScriptRef.bulletsInExistence.RemoveAt(0);
+            //damage the player
         }
     }
 

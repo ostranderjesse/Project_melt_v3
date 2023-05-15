@@ -22,7 +22,7 @@ public class EnemyAttackScript : MonoBehaviour
     public GameObject bulletPrefab; //projectile
 
 
-    public List<GameObject> bulletsInExistence;
+  //  public List<GameObject> bulletsInExistence;
 
     public float launchVelocity = 10f;
 
@@ -31,18 +31,36 @@ public class EnemyAttackScript : MonoBehaviour
 
     public bool facingRight = true;
 
-    //public BossProjectile bossProjectileRef;
+   
 
 
     public bool canShoot = false;
 
+
+    [SerializeField]
+    private LevelManager levelManagerRef;
+
+
+
+
+
+
     private void Start()
     {
        // bossProjectileRef = FindObjectOfType<BossProjectile>();
+          
 
         targetedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
 
-        bulletsInExistence = new List<GameObject>();
+        levelManagerRef = FindObjectOfType<LevelManager>();
+
+        if(levelManagerRef == null)
+        {
+            levelManagerRef = FindObjectOfType<LevelManager>();
+            Debug.Log("Level manager Reference was null it is not now");
+        }
+
+      //  bulletsInExistence = new List<GameObject>();
 
 
         canShoot = false;
@@ -61,18 +79,20 @@ public class EnemyAttackScript : MonoBehaviour
        // killProjectile();
 
 
-        if (distance <= attackRange && !canShoot) // canShoot = true
+        if (distance <= attackRange) //&& !canShoot) // canShoot = true
         {
 
-            if (bulletsInExistence.Count >= 1)
-            {
+         
+           if(levelManagerRef.bulletsInExistence.Count >=1)
+                {
                 canShoot = false;
-               // bulletsInExistence.RemoveAt(0);// original code
-                //bulletsInExistence.Clear(); // if doesnt work go back to original code
+             
                 
             }
-            else if ( bulletsInExistence.Count <=0)
-            {
+           
+          else if (levelManagerRef.bulletsInExistence.Count <=0)
+           {
+         
                 Debug.Log("Attack the Player now");
               
                 StartCoroutine(ShootProjectile());
@@ -116,7 +136,8 @@ public class EnemyAttackScript : MonoBehaviour
     {
         Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
-        bulletsInExistence.Add(bulletPrefab);
+        //  bulletsInExistence.Add(bulletPrefab);
+        levelManagerRef.bulletsInExistence.Add(bulletPrefab);
 
     }
 }
