@@ -61,10 +61,6 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void Update()
-    {
-        
-    }
 
     public void RemoveExtraFactory()
     {

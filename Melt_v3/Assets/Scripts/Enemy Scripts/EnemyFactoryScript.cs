@@ -7,13 +7,10 @@ public class EnemyFactoryScript : MonoBehaviour
 
     public float lifeTime = 3f;
 
-
     [SerializeField] private bool timeToDie = false;
 
     [SerializeField]
     private LevelManager levelManagerScriptRef;
-
-
 
     public void Start()
     {
@@ -43,10 +40,5 @@ public class EnemyFactoryScript : MonoBehaviour
         }
 
     }
-
-
-
-
-
 
 }
