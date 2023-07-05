@@ -12128,12 +12128,12 @@ GameObject:
   - component: {fileID: 78438262}
   - component: {fileID: 78438263}
   m_Layer: 0
-  m_Name: enemy test2
+  m_Name: enemy test2(patroller)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &78438258
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12222,13 +12222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d670b66b085e35948b9e88c135b8d3cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 2
   faceingRight: 1
   targetPoints: 0
   patrollingPoints:
   - {fileID: 1052613882}
   - {fileID: 2091114807}
+  patrolPointsParent: {fileID: 0}
 --- !u!114 &78438263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74202,7 +74202,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1399000982
 Transform:
   m_ObjectHideFlags: 0
@@ -89267,7 +89267,7 @@ GameObject:
   - component: {fileID: 1576544150}
   m_Layer: 0
   m_Name: Enemy patrol points
-  m_TagString: Untagged
+  m_TagString: Patrol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

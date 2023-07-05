@@ -137,3 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10060d37e7c2dda43b6508e4e733229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 10
+  nextSpawnTime: 3
+  enemyPrefab: {fileID: 2195622361318397224, guid: b90689e6fa6f0d44f96b028fc00472b2,
+    type: 3}
+  spawnDelay: 5
+  timeToDie: 0
+  levelManagerScriptRef: {fileID: 0}

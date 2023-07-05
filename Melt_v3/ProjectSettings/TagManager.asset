@@ -15,6 +15,7 @@ TagManager:
   - Boss1
   - Ground
   - enemyProjectile
+  - Patrol
   layers:
   - Default
   - TransparentFX

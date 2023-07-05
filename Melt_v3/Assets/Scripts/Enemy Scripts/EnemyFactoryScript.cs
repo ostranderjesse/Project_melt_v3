@@ -5,7 +5,11 @@ using UnityEngine;
 public class EnemyFactoryScript : MonoBehaviour
 {
 
-    public float lifeTime = 3f;
+    public float lifeTime = 10f;
+
+    [SerializeField] private float nextSpawnTime;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private float spawnDelay;
 
     [SerializeField] private bool timeToDie = false;
 
@@ -33,12 +37,29 @@ public class EnemyFactoryScript : MonoBehaviour
 
         if (timeToDie == true)
         {
-            
             Destroy(gameObject);
             levelManagerScriptRef.factoryInExistence.RemoveAt(0);
 
         }
 
+
+        if(ShouldSpawn())
+        {
+            Spawn();
+        }
+
+
+    }
+
+    private void Spawn()
+    {
+        nextSpawnTime = Time.time + spawnDelay;
+        Instantiate(enemyPrefab, transform.position, transform.rotation);
+    }
+
+    private bool ShouldSpawn()
+    {
+        return Time.time >= nextSpawnTime;
     }
 
 }

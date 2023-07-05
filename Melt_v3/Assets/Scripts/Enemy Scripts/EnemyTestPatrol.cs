@@ -7,11 +7,13 @@ public class EnemyTestPatrol : MonoBehaviour
     //public int chaseRange =5;
     //public bool isChasing = false;
     #endregion
-    [SerializeField] Transform target;
+   // [SerializeField] Transform target;
     public float speed;
     public bool faceingRight = true;
     public int targetPoints;
     public Transform[] patrollingPoints;
+    public GameObject patrolPointsParent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,12 @@ public class EnemyTestPatrol : MonoBehaviour
         //target = GameObject.FindGameObjectWithTag("Player").transform;
         // isChasing = false;
         #endregion
+
+        //refernece the patrolling points for the sapwned enemy
+        
+        
+
+
     }
 
     // Update is called once per frame
@@ -112,6 +120,26 @@ public class EnemyTestPatrol : MonoBehaviour
             targetPoints = 0;
         }
     }
+
+    //private GameObject FindChildOfObject(GameObject parentGameObject, string gameObjectName)
+    //{
+    //    for (int i = 0; i < parentGameObject.transform.childCount; i++)
+    //    {
+    //        if(parentGameObject.transform.GetChild(i).name == gameObjectName)
+    //        {
+    //            return parentGameObject.transform.GetChild(i).gameObject;
+    //        }
+
+    //    }
+
+
+
+    //    return null;
+    //}
+
+
+
+
 
     #region unused code
     //private void FaceEnemyPlayer()
