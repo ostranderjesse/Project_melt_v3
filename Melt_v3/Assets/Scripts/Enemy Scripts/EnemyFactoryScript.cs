@@ -32,6 +32,7 @@ public class EnemyFactoryScript : MonoBehaviour
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
         {
+            Debug.Log("Lifetime: " + lifeTime.ToString());
             timeToDie = true;
         }
 

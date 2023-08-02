@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
 {
+    public float bulletDropTime = .05f;
+
     public float lifeTime = 3f;
 
     public GameObject spawnFactory;
@@ -28,20 +30,6 @@ public class BossProjectile : MonoBehaviour
     //lifeTime
     [SerializeField] private bool timeToDie = false;
 
-
-
-
-
-
-
-
-
-
-
-    public void Awake()
-    {
-   
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +43,7 @@ public class BossProjectile : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
+        //rb.useGravity = true;
 
 
        // enemyAttackScriptRef = FindObjectOfType<EnemyAttackScript>();
@@ -73,6 +62,13 @@ public class BossProjectile : MonoBehaviour
         rb.velocity = new Vector3(speed , rb.velocity.y);
 
         //TimeDelay();
+
+        //bulletDropTime -= Time.deltaTime;
+        //if(bulletDropTime <=0)
+        //{
+        //    //turn on gravity
+        //    rb.useGravity = true;
+        //}
 
         lifeTime -= Time.deltaTime;
         if(lifeTime <= 0)

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccb8a196a47f5842a4f26035f647ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDropTime: 2
   lifeTime: 3
   spawnFactory: {fileID: 7039201547390908583, guid: 934344d5d828f2b49a18c1c0ca032702,
     type: 3}

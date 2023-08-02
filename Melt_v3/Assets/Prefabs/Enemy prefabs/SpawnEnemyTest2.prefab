@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4715808616939993668}
   - component: {fileID: 4715808616939993666}
   - component: {fileID: 4715808616939993669}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: arm.left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4715808617421061632}
   - component: {fileID: 4715808617421061646}
   - component: {fileID: 4715808617421061633}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 4715808617796665785}
   - component: {fileID: 4715808617796665799}
   - component: {fileID: 4715808617796665798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: arm.right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4715808618183782776}
   - component: {fileID: 4715808618183782779}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnEnemyTest2
   m_TagString: Enemy
   m_Icon: {fileID: 0}

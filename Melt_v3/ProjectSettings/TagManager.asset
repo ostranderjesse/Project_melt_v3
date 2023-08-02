@@ -16,6 +16,7 @@ TagManager:
   - Ground
   - enemyProjectile
   - Patrol
+  - enemyPatrollerConstent
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - 
   - Player
   - Projectile
-  - 
-  - 
+  - patrolPoint
+  - Enemey
   - 
   - 
   - 

@@ -12129,7 +12129,7 @@ GameObject:
   - component: {fileID: 78438263}
   m_Layer: 0
   m_Name: enemy test2(patroller)
-  m_TagString: Enemy
+  m_TagString: enemyPatrollerConstent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12225,10 +12225,7 @@ MonoBehaviour:
   speed: 2
   faceingRight: 1
   targetPoints: 0
-  patrollingPoints:
-  - {fileID: 1052613882}
-  - {fileID: 2091114807}
-  patrolPointsParent: {fileID: 0}
+  patrolPoints: []
 --- !u!114 &78438263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12259,7 +12256,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 92
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &79452316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56016,9 +56013,9 @@ GameObject:
   - component: {fileID: 1052613880}
   - component: {fileID: 1052613879}
   - component: {fileID: 1052613883}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Patrol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56043,7 +56040,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052613878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -89267,7 +89264,7 @@ GameObject:
   - component: {fileID: 1576544150}
   m_Layer: 0
   m_Name: Enemy patrol points
-  m_TagString: Patrol
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112659,9 +112656,9 @@ GameObject:
   - component: {fileID: 2091114805}
   - component: {fileID: 2091114804}
   - component: {fileID: 2091114808}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: Patrol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112686,7 +112683,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091114803}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

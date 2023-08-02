@@ -11,25 +11,39 @@ public class EnemyTestPatrol : MonoBehaviour
     public float speed;
     public bool faceingRight = true;
     public int targetPoints;
-    public Transform[] patrollingPoints;
-    public GameObject patrolPointsParent;
+
+    public GameObject[] patrolPoints;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (targetPoints >= patrolPoints.Length) // if (targetPoints >= patrollingPoints.Length) change if not work
+        {
+            targetPoints = 0;
+        }
+
+       
+        patrolPoints = GameObject.FindGameObjectsWithTag("Patrol");
+
+       foreach(GameObject patrolPointschildren in patrolPoints)
+        {
+            Debug.Log("Transform of object is:" + patrolPointschildren.transform.position);
+        }
+
+        //foreach(Transform transformOfObject in patrollingPoints)
+        //{
+        //    Debug.Log("Transform of object is:" + patrollingPoints + transformOfObject.transform.position);
+        //}
+
+
         targetPoints = 0;
         faceingRight = true;
         #region unused cached variables
         //target = GameObject.FindGameObjectWithTag("Player").transform;
         // isChasing = false;
         #endregion
-
-        //refernece the patrolling points for the sapwned enemy
         
-        
-
-
     }
 
     // Update is called once per frame
@@ -47,7 +61,7 @@ public class EnemyTestPatrol : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 5.53f, transform.position.z);
         }
 
-        if (transform.position == patrollingPoints[targetPoints].position) //.x
+        if (transform.position == patrolPoints[targetPoints].transform.position) //.x       //if (transform.position == patrollingPoints[targetPoints].position) //.x
         {
             IncreaseTargetInt();
         }
@@ -76,9 +90,9 @@ public class EnemyTestPatrol : MonoBehaviour
         }
 
 
-      
 
-        transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
+
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoints].transform.position, speed * Time.deltaTime);  // transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
 
         #region distance <= chaseRange
         //if (distance <= chaseRange)
@@ -111,32 +125,18 @@ public class EnemyTestPatrol : MonoBehaviour
 
     public void IncreaseTargetInt()
     {
+
        // Debug.Log("adding 1 to targetpoints" + targetPoints);
         targetPoints++;
        // Debug.Log("targetpoints" + targetPoints);
 
-        if (targetPoints >= patrollingPoints.Length)
+        if (targetPoints >= patrolPoints.Length) // if (targetPoints >= patrollingPoints.Length) change if not work
         {
             targetPoints = 0;
         }
     }
 
-    //private GameObject FindChildOfObject(GameObject parentGameObject, string gameObjectName)
-    //{
-    //    for (int i = 0; i < parentGameObject.transform.childCount; i++)
-    //    {
-    //        if(parentGameObject.transform.GetChild(i).name == gameObjectName)
-    //        {
-    //            return parentGameObject.transform.GetChild(i).gameObject;
-    //        }
-
-    //    }
-
-
-
-    //    return null;
-    //}
-
+   
 
 
 

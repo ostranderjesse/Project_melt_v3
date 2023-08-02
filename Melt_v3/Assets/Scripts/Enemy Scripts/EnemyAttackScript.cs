@@ -22,7 +22,7 @@ public class EnemyAttackScript : MonoBehaviour
     public GameObject bulletPrefab; //projectile
 
 
-  //  public List<GameObject> bulletsInExistence;
+ 
 
     public float launchVelocity = 10f;
 

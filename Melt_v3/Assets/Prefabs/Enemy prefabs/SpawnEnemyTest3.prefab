@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1248874079275998913}
   - component: {fileID: 2195622361318397225}
   - component: {fileID: -8689468785091830922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpawnEnemyTest3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -63,8 +63,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1216928, z: 1.4005275}
-  m_Center: {x: 0, y: 0.06084639, z: -0.0065936744}
+  m_Size: {x: 1.380549, y: 1.1216928, z: 1.4005275}
+  m_Center: {x: 0.04502538, y: 0.06084639, z: -0.006593704}
 --- !u!114 &-8689468785091830922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2195622361318397224}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d670b66b085e35948b9e88c135b8d3cc, type: 3}
   m_Name: 
@@ -81,7 +81,7 @@ MonoBehaviour:
   faceingRight: 1
   targetPoints: 0
   patrollingPoints: []
-  patrolPointsParent: {fileID: 0}
+  patrolPoints: []
 --- !u!1 &2195622361475540458
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2195622361475540459}
   - component: {fileID: 2195622361475540373}
   - component: {fileID: 2195622361475540372}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: arm.right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2195622362182048338}
   - component: {fileID: 2195622362182048348}
   - component: {fileID: 2195622362182048339}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 2195622362231561750}
   - component: {fileID: 2195622362231561744}
   - component: {fileID: 2195622362231561751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: arm.left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
