@@ -21,10 +21,12 @@ public class EnemyAttackScript : MonoBehaviour
 
     public GameObject bulletPrefab; //projectile
 
+    //public Rigidbody projectileRigidbody; // may not need
+
 
  
 
-    public float launchVelocity = 10f;
+    public float launchVelocity = 10f; // launchspeed
 
     public int attackRange; //chaseRange
     public int attackIntervals = 5; //time between attacks
@@ -134,10 +136,40 @@ public class EnemyAttackScript : MonoBehaviour
 
     public void Shooting()
     {
-        Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        //uncomment out if the stuff below doesnt work
+        //     |
+        //     | 
+        //     |
+        //     v
+
+       // Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+        //  bulletsInExistence.Add(bulletPrefab);
+        //levelManagerRef.bulletsInExistence.Add(bulletPrefab);
+
+
+        //     ^
+        //     |
+        //     |
+        //     |
+
+
+
+        //test area
+        /*
+         */
+
+        // Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+        var _projectile = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        _projectile.GetComponent<Rigidbody>().velocity = launchVelocity * bulletSpawnPoint.up;
+        
 
         //  bulletsInExistence.Add(bulletPrefab);
         levelManagerRef.bulletsInExistence.Add(bulletPrefab);
+
+
+
 
     }
 }

@@ -24,13 +24,19 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> factoryInExistence;
 
     //reference the bossProjectile
-    public BossProjectile bossProjectileRef;
+    //public BossProjectile bossProjectileRef;
+
+    public BulletDetection bulletDetectionRef;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bulletDetectionRef = FindObjectOfType<BulletDetection>();
+        if(bulletDetectionRef == null)
+        {
+            bulletDetectionRef = FindObjectOfType<BulletDetection>();
+        }
 
 
         playerRef = FindObjectOfType<PlayerMovementScript>();
@@ -59,6 +65,15 @@ public class LevelManager : MonoBehaviour
             Debug.Log("THEPLAYER =  found");
 
 
+    }
+
+    private void Update()
+    {
+       
+        if (bulletDetectionRef == null)
+        {
+            bulletDetectionRef = FindObjectOfType<BulletDetection>();
+        }
     }
 
 
@@ -97,7 +112,10 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(respawnDelay);
 
-        Destroy(bossProjectileRef.spawnFactory);
+       // Destroy(bossProjectileRef.spawnFactory);
+
+        Destroy(bulletDetectionRef.spawnFactory);
+
         factoryInExistence.RemoveAt(0);
 
        
