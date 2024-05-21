@@ -16,6 +16,8 @@ public class EnemyFactoryScript : MonoBehaviour
     [SerializeField]
     private LevelManager levelManagerScriptRef;
 
+    
+
     public void Start()
     {
         levelManagerScriptRef = FindObjectOfType<LevelManager>();
@@ -54,8 +56,10 @@ public class EnemyFactoryScript : MonoBehaviour
 
     private void Spawn()
     {
+        
         nextSpawnTime = Time.time + spawnDelay;
-        Instantiate(enemyPrefab, transform.position, transform.rotation);
+        //Instantiate(enemyPrefab, transform.position, transform.rotation); // old code 
+        Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation = Quaternion.identity); // new code
     }
 
     private bool ShouldSpawn()

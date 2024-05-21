@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1248874079275998913}
   - component: {fileID: 2195622361318397225}
   - component: {fileID: -8689468785091830922}
+  - component: {fileID: 1105014438619483639}
   m_Layer: 11
   m_Name: SpawnEnemyTest3
   m_TagString: Enemy
@@ -80,8 +81,22 @@ MonoBehaviour:
   speed: 2
   faceingRight: 1
   targetPoints: 0
-  patrollingPoints: []
   patrolPoints: []
+--- !u!114 &1105014438619483639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2195622361318397224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9e60f1c27679d45b9abf7758e260d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelManagerRef: {fileID: 0}
+  playerHealthRef: {fileID: 0}
+  playerMovementRef: {fileID: 0}
 --- !u!1 &2195622361475540458
 GameObject:
   m_ObjectHideFlags: 0

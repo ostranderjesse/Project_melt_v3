@@ -170,5 +170,7 @@ public class LevelManager : MonoBehaviour
 
         //create respawn particle
         Instantiate(respawnPartilcle, currentCheckPoint.transform.position, currentCheckPoint.transform.rotation);
+
+        // delay damage output somehow
     }
 }

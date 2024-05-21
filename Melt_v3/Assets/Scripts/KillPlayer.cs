@@ -63,6 +63,7 @@ public class KillPlayer : MonoBehaviour
             playerHealthRef.TakeDanage(10.0f);
 
             levelManagerRef.RespawnPlayer();
+            //delay damage / death for a few frames
         }
     }
 }

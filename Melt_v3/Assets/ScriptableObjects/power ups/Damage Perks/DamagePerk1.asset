@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Damage perk 1
   description: increase damage by 1
-  modelYouWantToUse: {fileID: 4300000, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
+  modelYouWantToUse: {fileID: 4300000, guid: 34624edaccd9d704a95ed404d919b492, type: 3}
   defaultMaterial: {fileID: 2100000, guid: 13240e9aea98483479cc2d93a214a5f3, type: 2}
   damage: 1
   heatResistence: 0
