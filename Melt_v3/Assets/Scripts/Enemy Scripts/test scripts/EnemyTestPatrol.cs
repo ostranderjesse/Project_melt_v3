@@ -14,6 +14,9 @@ public class EnemyTestPatrol : MonoBehaviour
 
     public GameObject[] patrolPoints;
 
+    public bool killObject = false;
+    public float lifeTimeofObject = 3f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +96,24 @@ public class EnemyTestPatrol : MonoBehaviour
 
 
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoints].transform.position, speed * Time.deltaTime);  // transform.position = Vector3.MoveTowards(transform.position, patrollingPoints[targetPoints].position, speed * Time.deltaTime);
+
+
+        lifeTimeofObject -= Time.deltaTime;
+        if(lifeTimeofObject <=0)
+        {
+            Debug.Log("Lifetime: " + lifeTimeofObject.ToString());
+            killObject = true;
+        }
+
+        if(killObject == true)
+        {
+            Destroy(gameObject);
+
+            //add explosion animation + damage if near player
+        }
+
+
+
 
         #region distance <= chaseRange
         //if (distance <= chaseRange)

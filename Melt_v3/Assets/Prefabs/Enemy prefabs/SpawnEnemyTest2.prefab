@@ -247,6 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4715808618183782776}
   - component: {fileID: 4715808618183782779}
+  - component: {fileID: -4359393781699416447}
   m_Layer: 11
   m_Name: SpawnEnemyTest2
   m_TagString: Enemy
@@ -284,3 +285,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1216928, z: 1.4005275}
   m_Center: {x: 0, y: 0.06084639, z: -0.0065936744}
+--- !u!114 &-4359393781699416447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4715808618183782778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d670b66b085e35948b9e88c135b8d3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  faceingRight: 1
+  targetPoints: 0
+  patrolPoints: []
+  killObject: 0
+  lifeTimeofObject: 12

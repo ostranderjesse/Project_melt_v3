@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackScript : MonoBehaviour
 {
-    //need a waitTimerToFire if player is hit
+
 
     #region spawnfactory notes for spawning
     /*
@@ -21,7 +21,7 @@ public class EnemyAttackScript : MonoBehaviour
 
     public GameObject bulletPrefab; //projectile
 
-    //public Rigidbody projectileRigidbody; // may not need
+
 
 
  
@@ -43,14 +43,9 @@ public class EnemyAttackScript : MonoBehaviour
     private LevelManager levelManagerRef;
 
 
-
-
-
-
     private void Start()
     {
-       // bossProjectileRef = FindObjectOfType<BossProjectile>();
-          
+      
 
         targetedPlayer = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -61,9 +56,6 @@ public class EnemyAttackScript : MonoBehaviour
             levelManagerRef = FindObjectOfType<LevelManager>();
             Debug.Log("Level manager Reference was null it is not now");
         }
-
-      //  bulletsInExistence = new List<GameObject>();
-
 
         canShoot = false;
 
@@ -77,11 +69,7 @@ public class EnemyAttackScript : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, targetedPlayer.transform.position);
 
-
-       // killProjectile();
-
-
-        if (distance <= attackRange) //&& !canShoot) // canShoot = true
+        if (distance <= attackRange) 
         {
 
          
@@ -99,10 +87,7 @@ public class EnemyAttackScript : MonoBehaviour
               
                 StartCoroutine(ShootProjectile());
             }
-
-
         }
-
     }
 
     IEnumerator ShootProjectile()
@@ -136,13 +121,14 @@ public class EnemyAttackScript : MonoBehaviour
 
     public void Shooting()
     {
+        #region old code
         //uncomment out if the stuff below doesnt work
         //     |
         //     | 
         //     |
         //     v
 
-       // Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        // Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
         //  bulletsInExistence.Add(bulletPrefab);
         //levelManagerRef.bulletsInExistence.Add(bulletPrefab);
@@ -160,16 +146,13 @@ public class EnemyAttackScript : MonoBehaviour
          */
 
         // Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        #endregion
 
         var _projectile = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         _projectile.GetComponent<Rigidbody>().velocity = launchVelocity * bulletSpawnPoint.up;
         
 
-        //  bulletsInExistence.Add(bulletPrefab);
         levelManagerRef.bulletsInExistence.Add(bulletPrefab);
-
-
-
 
     }
 }

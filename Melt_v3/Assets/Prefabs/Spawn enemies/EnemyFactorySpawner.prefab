@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: -5635105045693287154}
   m_Layer: 0
   m_Name: EnemyFactorySpawner
-  m_TagString: Untagged
+  m_TagString: spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 10
   nextSpawnTime: 3
-  enemyPrefab: {fileID: 2195622361318397224, guid: b90689e6fa6f0d44f96b028fc00472b2,
+  enemyPrefab: {fileID: 4715808618183782778, guid: b2039b0f6c9f5d64aa29d41652ddab6b,
     type: 3}
   spawnDelay: 5
   timeToDie: 0

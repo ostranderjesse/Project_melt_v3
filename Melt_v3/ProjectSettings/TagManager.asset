@@ -17,6 +17,7 @@ TagManager:
   - enemyProjectile
   - Patrol
   - enemyPatrollerConstent
+  - spawner
   layers:
   - Default
   - TransparentFX
