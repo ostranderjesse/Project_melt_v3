@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthBar healthBarRef;
 
+    public PlayerMovementScript thePlayer;
+
     public void Awake()
     {
         //string path = Application.persistentDataPath + "/Player.Perks";
@@ -23,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
         //    Debug.Log("no file exists in: " + path);
         //}
 
+
+        //find the player
+        thePlayer = FindObjectOfType<PlayerMovementScript>();
 
     }
 
@@ -48,7 +53,24 @@ public class PlayerHealth : MonoBehaviour
         //}
     }
 
-   public void TakeDanage(float damage)
+   public void DamagePlayer(float damage, Vector3 dDirection)
+    {
+      currentHealth -= damage;
+        thePlayer.KnockBack(dDirection);
+    }
+
+    public void killPlayer(float damage) // just damage the player
+    {
+        //direction = new Vector3(1, 1, 1);
+        currentHealth -= damage;
+
+
+       // thePlayer.KnockBack(direction);
+
+        healthBarRef.SetHealth(currentHealth);
+    }
+
+    public void DamageOverTimeDamage(float damage)
     {
         currentHealth -= damage;
 

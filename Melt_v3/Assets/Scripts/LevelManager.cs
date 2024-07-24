@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject THEPLAYER;
 
-    private float gravityStore;
+    public float gravityStore;
     [Space]
     [Space]
     [SerializeField] private EnemyAttackScript enemyAttackScriptRef;

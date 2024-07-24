@@ -24,6 +24,8 @@ public class PlayerMovementScript : MonoBehaviour
     public float moveVelocity;
     [Space]
 
+    public bool isGrounded;
+
     //multi jump
     public int extraJumps;
     public int extraJumpValue;
@@ -43,6 +45,13 @@ public class PlayerMovementScript : MonoBehaviour
     // references
     [SerializeField]
     private PlayerMovementScript playerMovementRef;
+    [Space]
+
+    public float knockBackForce;
+    public float knockBackTime;
+    [SerializeField] public float knockBackCounter;
+
+
 
     #endregion
     // Start is called before the first frame update
@@ -59,6 +68,8 @@ public class PlayerMovementScript : MonoBehaviour
         warpEnterence = GameObject.FindGameObjectsWithTag("Warp");
         warpExit = GameObject.FindGameObjectsWithTag("ExitWarp");
 
+       // isGrounded = true;
+
         // anim = GetComponent<Animator>();
         extraJumps = extraJumpValue;
     }
@@ -66,77 +77,113 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizInput = Input.GetAxis("Horizontal");
-
-        moveDirection = new Vector3(horizInput,0,0); // store input in moveDirection
-
-       
-
-        if(controller.isGrounded == true)
+       if(knockBackCounter <= 0)
         {
-           // Debug.Log("character controller is grounded");
+        
+            float horizInput = Input.GetAxis("Horizontal");
 
-            //  anim.SetBool("isJumping", false);
+            moveDirection = new Vector3(horizInput, 0, 0); // store input in moveDirection
 
-            _directionY = 0;
+  
 
-            extraJumps = extraJumpValue;
 
-            moveVelocity = 0f;
-        }
-        else if(controller.isGrounded == false)
-        {
-            //anim.SetBool("isJumping", true);
-            _directionY -= _gravity * Time.deltaTime; // this is your jumping stuff and gravity
-
-            if(Input.GetKeyDown(KeyCode.W) && extraJumps >0)
+            if (controller.isGrounded == true)
             {
+                // Debug.Log("character controller is grounded");
+
+                //  anim.SetBool("isJumping", false);
+
+                _directionY = 0;
+
+                extraJumps = extraJumpValue;
+
+                moveVelocity = 0f;
+            }
+            else if (controller.isGrounded == false)
+            {
+                //anim.SetBool("isJumping", true);
+                _directionY -= _gravity * Time.deltaTime; // this is your jumping stuff and gravity
+
+                if (Input.GetKeyDown(KeyCode.W) && extraJumps > 0)
+                {
+                    // anim.SetTrigger("takeOff");
+
+                    _directionY = jumpSpeed;
+                    extraJumps--;
+                    Debug.Log("extra jump value: " + extraJumps + " else statment");
+                }
+            }
+
+
+            //flip player arround as they move left or right
+            if (horizInput < 0 && facingRight)
+            {
+                Flip();
+            }
+            else if (horizInput > 0 && !facingRight)
+            {
+                Flip();
+            }
+
+            //jumping
+            if (controller.isGrounded == true && Input.GetKeyDown(KeyCode.W))
+            {
+                //take off animation
                 // anim.SetTrigger("takeOff");
 
                 _directionY = jumpSpeed;
+
                 extraJumps--;
-                Debug.Log("extra jump value: " + extraJumps + " else statment");
+
             }
+
+            moveVelocity = moveSpeed;
+            moveDirection *= moveSpeed;
+            moveDirection.y = _directionY;
+
+            if (horizInput != 0)
+            {
+                //  anim.SetBool("isRunning", true);
+                Quaternion newRoation = Quaternion.LookRotation(new Vector3(horizInput, 0, 0));
+                //model.rotation = newRotation;
+            }
+            else if (horizInput == 0)
+            {
+                //  anim.SetBool("isRunning", false);
+            }
+            //move player left and right
+            controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
         }
-
-
-        //flip player arround as they move left or right
-        if(horizInput <0 && facingRight )
+        else
         {
-            Flip();
+
+           knockBackCounter -= Time.deltaTime;
+
+            if(playerMovementRef.controller.enabled == false && knockBackCounter <=0)
+            {
+                Debug.Log("player should be able to move");
+            }
+
+
+
+
+           // if(moveDirection.y >0 && knockBackCounter <=0)
+          //  {
+                //controller.enabled = false;
+           // playerMovementRef.enabled = false;
+
+            //if(knockBackCounter >= 0)
+            //{
+            //    controller.enabled = true;
+            //    playerMovementRef.enabled = true;
+            //}
+
+            // }
+
+
         }
-        else if(horizInput >0 && !facingRight)
-        {
-            Flip();
-        }
-
-        //jumping
-        if(controller.isGrounded == true && Input.GetKeyDown(KeyCode.W))
-        {
-            //take off animation
-            // anim.SetTrigger("takeOff");
-
-            _directionY = jumpSpeed;
-
-            extraJumps--;
-
-        }
-
-        moveVelocity = moveSpeed;
-        moveDirection *= moveSpeed;
-        moveDirection.y = _directionY;
-
-        if(horizInput != 0)
-        {
-            //  anim.SetBool("isRunning", true);
-            Quaternion newRoation = Quaternion.LookRotation(new Vector3(horizInput, 0, 0));
-            //model.rotation = newRotation;
-        } else if (horizInput == 0)
-        {
-            //  anim.SetBool("isRunning", false);
-        }
-        //move player left and right
-        controller.Move(moveDirection * Time.deltaTime); //runs in seconds at the same amount
+        //controller.enabled = true;
+       //playerMovementRef.enabled = true;
     }
 
 
@@ -187,6 +234,9 @@ public class PlayerMovementScript : MonoBehaviour
             }
             
         }
+
+      
+
     }
 
     public void Flip()
@@ -195,4 +245,16 @@ public class PlayerMovementScript : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
     }
+
+    public void KnockBack(Vector3 _direction)
+    {
+        knockBackCounter = knockBackTime;
+
+        _direction = new Vector3(1f,0f,0f);
+       // player.transform.position = player.transform.position - _direction;
+
+        Debug.Log("_direction = " + _direction);
+        moveDirection = player.transform.position + _direction * knockBackForce * Time.deltaTime;
+    }
+
 }

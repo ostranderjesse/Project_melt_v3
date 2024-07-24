@@ -60,8 +60,13 @@ public class KillPlayer : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            playerHealthRef.TakeDanage(10.0f);
+           // Vector3 hitDirection = other.transform.position - transform.position;
+           // hitDirection = hitDirection.normalized;
 
+            playerHealthRef.killPlayer(10.0f);
+
+      
+            // knockback
             levelManagerRef.RespawnPlayer();
             //delay damage / death for a few frames
         }

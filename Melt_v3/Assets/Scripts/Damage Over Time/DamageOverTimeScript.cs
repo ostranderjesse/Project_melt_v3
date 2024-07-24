@@ -33,7 +33,7 @@ public class DamageOverTimeScript : MonoBehaviour
 
             if (ticTimeD <= 0)
             {
-                PlayerHealthRef.TakeDanage(5);
+                PlayerHealthRef.DamageOverTimeDamage(5);
                 Debug.Log("Damaged");
                 ticTimeD = 2.0f;
             }

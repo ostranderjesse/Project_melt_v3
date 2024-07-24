@@ -13,8 +13,15 @@ public class EnemyKillPlayer : MonoBehaviour
     [SerializeField]
     private PlayerMovementScript playerMovementRef;
 
+
+    public Vector3 distanceThrown;
+
     void Start()
     {
+
+        distanceThrown = new Vector3(1.0f, 1.0f, 0.0f);
+
+
         levelManagerRef = FindObjectOfType<LevelManager>();
 
         playerHealthRef = FindObjectOfType<PlayerHealth>();
@@ -44,7 +51,11 @@ public class EnemyKillPlayer : MonoBehaviour
     {
         if (other.name == "Snowman Player(Clone)")                         //"player(Clone)")
         {
-            playerHealthRef.TakeDanage(10.0f);
+
+            Vector3 hitDirection = other.transform.position - distanceThrown;
+            //hitDirection = hitDirection.normalized;
+
+            playerHealthRef.killPlayer(10.0f);
 
             levelManagerRef.RespawnPlayer();
         }
